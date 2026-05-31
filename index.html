@@ -6,49 +6,49 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main-wrapper">
+    <div id="main-content">
         <header class="top-nav">
             <div class="logo">VICE <span class="v-color">RP</span></div>
             <nav class="nav-links">
-                <a href="#" class="nav-item">Ana Sayfa</a>
-                <a href="#hakkimizda" class="nav-item">Hakkımızda</a>
-                <a href="#" class="nav-item">Kredi Yükle</a>
+                <a href="#hakkimizda">Hakkımızda</a>
+                <a href="#guncellemeler">Güncellemeler</a>
+                <a href="#oyun-indir">Oyun İndir</a>
+                <a href="#" onclick="toggleModal('bakiye-modal')">Bakiye Yükle</a>
+                <a href="#" onclick="toggleModal('login-modal')" class="login-btn">Giriş Yap</a>
             </nav>
-            <div class="profile-pill">
-                <img src="https://i.hizliresim.com/8fr5p14.png" alt="! 𝐖𝐞𝐥𝐢𝐨𝐧 𝐰𝐚𝐬𝐨𝐧">
-                <span>! 𝐖𝐞𝐥𝐢𝐨𝐧 𝐰𝐚𝐬𝐨𝐧</span>
-            </div>
         </header>
 
-        <main class="hero-section">
-            <div class="hero-content">
-                <h1>Vice Şehrini Kırmızıya Boya</h1>
-                <p>Kendi hikayeni yaz, sınırları zorla ve efsaneni yarat.</p>
-                <a href="https://discord.gg/vicerp" class="hero-btn">Şimdi Başla</a>
-            </div>
-        </main>
-
+        <!-- Hakkımızda Bölümü (Görselli) -->
         <section id="hakkimizda" class="about-section">
             <div class="about-content">
-                <div class="about-text">
-                    <h3>Hikayemiz ve Vizyonumuz</h3>
-                    <p>Vice RP, 2021 yılında MTA:SA tutkunlarının bir araya gelmesiyle kuruldu. Amacımız San Andreas evreninde gerçekçi bir deneyim sunmaktı.</p>
-                    <div class="tags">
-                        <span>MTA:SA</span> <span>Roleplay</span> <span>Aktif Geliştirme</span>
-                    </div>
-                </div>
-
-                <div class="about-cards">
-                    <div class="card">
-                        <div class="profile-header">
-                            <img src="https://i.hizliresim.com/8fr5p14.png" alt="! 𝐖𝐞𝐥𝐢𝐨𝐧 𝐰𝐚𝐬𝐨𝐧">
-                            <h4>! 𝐖𝐞𝐥𝐢𝐨𝐧 𝐰𝐚𝐬𝐨𝐧</h4>
-                        </div>
-                        <p>Kurucu / Geliştirici</p>
-                    </div>
-                </div>
+                <h3>Hikayemiz ve Vizyonumuz</h3>
+                <p>Vice RP, MTA:SA evreninde profesyonel bir deneyim sunar.</p>
             </div>
         </section>
     </div>
+
+    <!-- Modallar -->
+    <div id="login-modal" class="modal-overlay" onclick="toggleModal('login-modal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h2>Giriş Yap</h2>
+            <input type="text" placeholder="Kullanıcı Adı">
+            <input type="password" placeholder="Şifre">
+            <button class="hero-btn">Giriş Yap</button>
+        </div>
+    </div>
+
+    <div id="bakiye-modal" class="modal-overlay" onclick="toggleModal('bakiye-modal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h2>Ödemeler Discord'da</h2>
+            <a href="https://discord.gg/vicerp" class="hero-btn">Sunucuya Git</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal(id) {
+            document.getElementById(id).classList.toggle('active');
+            document.getElementById('main-content').classList.toggle('blurred');
+        }
+    </script>
 </body>
 </html>
