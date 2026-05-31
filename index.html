@@ -2,39 +2,40 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Vice RP | Bağlan</title>
+    <title>Vice RP | Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="navbar">
         <div class="logo">VICE <span class="red">RP</span></div>
         <nav>
-            <a href="#">Ana Sayfa</a>
-            <a href="#">Hakkımızda</a>
-            <a href="#">Güncellemeler</a>
-            <a href="#">Oyun İndir</a>
-            <a href="#">Bakiye Yükle</a>
-            <a href="#">İnterior Listesi</a>
+            <a href="#anasayfa">Ana Sayfa</a>
+            <a href="#" onclick="toggleSection('hakkimizda')">Hakkımızda</a>
+            <a href="#guncellemeler">Güncellemeler</a>
+            <a href="#oyun-indir">Oyun İndir</a>
             <a href="#" class="login-btn">Giriş Yap</a>
         </nav>
     </header>
 
     <main class="container">
-        <h1>Vice RP'ye Bağlanmak İçin İndir</h1>
-        <p>Aşağıdaki adımları takip ederek dakikalar içinde sunucumuza bağlanabilirsin.</p>
-        
-        <div class="download-section">
+        <!-- Ana Sayfa (Boş/Temiz) -->
+        <section id="anasayfa">
+            <h1>Vice RP'ye Hoş Geldin</h1>
+        </section>
+
+        <!-- Hakkımızda (Açılır Kapanır) -->
+        <section id="hakkimizda" class="hidden">
             <div class="card">
-                <h3>GTA: San Andreas</h3>
-                <p>MTA:SA için gerekli ana oyun</p>
-                <button class="red-btn">GTA:SA İndir</button>
+                <h2>Sunucumuzun Geçmişi</h2>
+                <p>Vice RP, 2021 yılından bu yana kaliteli roleplay vizyonuyla gelişmeye devam eden köklü bir topluluktur.</p>
             </div>
-            <div class="card">
-                <h3>MTA: San Andreas</h3>
-                <p>Çok oyunculu mod — sunucuya bu ile bağlanırsın</p>
-                <button class="red-btn">Win 10+ İndir</button>
-            </div>
-        </div>
+        </section>
     </main>
+
+    <script>
+        function toggleSection(id) {
+            document.getElementById(id).classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
