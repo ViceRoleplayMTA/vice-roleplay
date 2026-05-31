@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Vice RP | Portal</title>
+    <title>Vice RP | Modern Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,31 +11,42 @@
         <nav>
             <a href="#anasayfa">Ana Sayfa</a>
             <a href="#" onclick="toggleSection('hakkimizda')">Hakkımızda</a>
-            <a href="#guncellemeler">Güncellemeler</a>
             <a href="#oyun-indir">Oyun İndir</a>
-            <a href="#" class="login-btn">Giriş Yap</a>
+            <a href="#" class="login-btn" onclick="toggleModal('login-modal')">Giriş Yap</a>
         </nav>
     </header>
 
-    <main class="container">
-        <!-- Ana Sayfa (Boş/Temiz) -->
-        <section id="anasayfa">
-            <h1>Vice RP'ye Hoş Geldin</h1>
-        </section>
+    <main id="anasayfa" class="hero-section">
+        <div class="activity-bar">
+            <span>⚡ Son Faaliyetler</span>
+            <div class="activity-text">Vice Admin sunucuya giriş yaptı</div>
+            <div class="server-status">🟢 21 Aktif | <button>Katıl</button></div>
+        </div>
 
-        <!-- Hakkımızda (Açılır Kapanır) -->
-        <section id="hakkimizda" class="hidden">
-            <div class="card">
-                <h2>Sunucumuzun Geçmişi</h2>
-                <p>Vice RP, 2021 yılından bu yana kaliteli roleplay vizyonuyla gelişmeye devam eden köklü bir topluluktur.</p>
+        <div class="hero-content">
+            <span class="badge">👑 Sezon 3 Yayında — Sınırları Zorlayan Rol Deneyimi</span>
+            <h1>En Gerçekçi<br>VICE RP Roleplay<br>Deneyimi</h1>
+            <p>San Andreas'ın derinliklerinde kendi hikayeni yaz. Premium roleplay sunucumuzda binlerce oyuncuyla gerçekçi bir dünyayı keşfet.</p>
+            
+            <div class="hero-buttons">
+                <button class="btn-play">▶ Oyuna Bağlan</button>
+                <button class="btn-info">ℹ Daha Fazla Bilgi</button>
             </div>
-        </section>
+        </div>
+        <div class="hero-video-placeholder"></div>
     </main>
 
+    <!-- Hakkımızda Bölümü -->
+    <section id="hakkimizda" class="hidden">
+        <div class="card">
+            <h2>Sunucumuzun Geçmişi</h2>
+            <p>Vice RP, 2021 yılından bu yana kaliteli roleplay vizyonuyla gelişmeye devam eden köklü bir topluluktur.</p>
+        </div>
+    </section>
+
     <script>
-        function toggleSection(id) {
-            document.getElementById(id).classList.toggle('hidden');
-        }
+        function toggleSection(id) { document.getElementById(id).classList.toggle('hidden'); }
+        function toggleModal(id) { document.getElementById(id).classList.toggle('active'); }
     </script>
 </body>
 </html>
