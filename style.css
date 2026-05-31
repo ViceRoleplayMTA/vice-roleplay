@@ -1,29 +1,24 @@
 body { margin: 0; background-color: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; }
-.main-wrapper { 
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.hizliresim.com/forufls.png'); 
-    background-size: cover; min-height: 100vh;
-}
-.top-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 80px; background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); }
-
-/* Menü */
-.nav-links { display: flex; gap: 25px; }
-.nav-item { color: #fff; text-decoration: none; font-weight: 500; transition: 0.3s; padding: 5px 10px; border-radius: 5px; }
-.nav-item:hover { color: #ff4757; background: rgba(255, 71, 87, 0.1); }
-
 .v-color { color: #ff4757; }
-.profile-pill { display: flex; align-items: center; gap: 10px; background: #1a1a1a; padding: 5px 15px; border-radius: 50px; border: 1px solid #ff4757; }
-.profile-pill img { width: 30px; height: 30px; border-radius: 50%; }
 
-/* Hero */
-.hero-section { padding: 150px 80px; text-align: center; }
-.hero-btn { padding: 18px 45px; background: #ff4757; color: #fff; text-decoration: none; font-weight: bold; font-size: 1.2em; border-radius: 5px; box-shadow: 0 0 15px #ff4757; transition: 0.3s; }
-.hero-btn:hover { background: #e84118; box-shadow: 0 0 25px #ff4757; }
+/* Header */
+.top-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 80px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); }
+.nav-links a { color: white; text-decoration: none; margin-left: 20px; }
+.login-btn { border: 1px solid #ff4757; padding: 5px 15px; border-radius: 5px; color: #ff4757; }
 
-/* Hakkımızda */
-.about-section { padding: 80px 10%; background: rgba(0,0,0,0.6); color: white; }
-.about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-.card { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px; border-left: 4px solid #ff4757; backdrop-filter: blur(5px); }
-.profile-header { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
-.profile-header img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ff4757; }
-.tags span { display: inline-block; background: #222; padding: 5px 12px; border-radius: 5px; margin-right: 10px; border: 1px solid #444; }
-h3 { color: #ff4757; }
+/* Hakkımızda - Görsel Buraya Eklendi */
+.about-section { 
+    padding: 150px 10%; 
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.hizliresim.com/fis6b8y.png');
+    background-size: cover; 
+    background-position: center; 
+    text-align: center;
+}
+
+/* Modal ve Blur */
+.blurred { filter: blur(5px); transition: 0.3s; }
+.modal-overlay { display: none; position: fixed; top:0; left:0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); align-items: center; justify-content: center; z-index: 1000; }
+.modal-overlay.active { display: flex; }
+.modal-content { background: #0a0a0a; padding: 40px; border-radius: 20px; border: 1px solid #ff4757; width: 300px; text-align: center; }
+.modal-content input { width: 90%; padding: 10px; margin: 10px 0; background: #222; border: 1px solid #444; color: white; }
+.hero-btn { background: #ff4757; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
