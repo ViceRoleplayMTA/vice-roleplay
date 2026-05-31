@@ -1,16 +1,12 @@
 body { background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; }
 .red { color: #ff4757; }
 
-/* Menü Tasarımı */
-.navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; background: #0a0a0a; border-bottom: 2px solid #ff4757; }
-.navbar a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: 500; }
-.login-btn { border: 1px solid #ff4757; padding: 8px 15px; border-radius: 5px; color: #ff4757 !important; }
+/* Navigasyon */
+.navbar { display: flex; justify-content: space-between; padding: 20px 10%; background: #0a0a0a; border-bottom: 2px solid #ff4757; }
+.navbar a { color: #fff; text-decoration: none; margin-left: 20px; cursor: pointer; }
+.login-btn { border: 1px solid #ff4757; padding: 5px 15px; border-radius: 5px; color: #ff4757; }
 
-/* İçerik Tasarımı */
+/* Kategori Sistemi */
+.hidden { display: none; }
 .container { padding: 50px 10%; text-align: center; }
-.download-section { display: flex; justify-content: center; gap: 30px; margin-top: 40px; }
-.card { background: #111; padding: 30px; border-radius: 10px; border: 1px solid #222; width: 300px; }
-
-/* Buton Tasarımı */
-.red-btn { background: #ff4757; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 15px; }
-.red-btn:hover { background: #e84150; }
+.card { background: #111; padding: 40px; border-radius: 10px; border: 1px solid #ff4757; margin-top: 20px; }
