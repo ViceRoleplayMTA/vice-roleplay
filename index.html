@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Vice RP | Modern Portal</title>
+    <title>Vice RP | Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,12 +18,16 @@
             </nav>
         </header>
 
-        <!-- Hakkımızda Bölümü (Görselli) -->
         <section id="hakkimizda" class="about-section">
             <div class="about-content">
-                <h3>Hikayemiz ve Vizyonumuz</h3>
-                <p>Vice RP, MTA:SA evreninde profesyonel bir deneyim sunar.</p>
+                <h2>Hikayemiz ve Vizyonumuz</h2>
+                <p>Vice RP, profesyonel MTA:SA deneyimi sunar.</p>
             </div>
+        </section>
+
+        <section id="guncellemeler" class="update-section">
+            <h2>Sunucu Güncellemeleri</h2>
+            <p>En yeni yamalar burada!</p>
         </section>
     </div>
 
@@ -34,13 +38,23 @@
             <input type="text" placeholder="Kullanıcı Adı">
             <input type="password" placeholder="Şifre">
             <button class="hero-btn">Giriş Yap</button>
+            <p style="margin-top:20px;">Henüz hesabın yok mu? <a href="#" onclick="toggleModal('login-modal'); toggleModal('register-modal')">Hemen Kayıt Ol</a></p>
+        </div>
+    </div>
+
+    <div id="register-modal" class="modal-overlay" onclick="toggleModal('register-modal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h2>Kayıt Ol</h2>
+            <input type="text" placeholder="E-posta">
+            <input type="password" placeholder="Şifre Oluştur">
+            <button class="hero-btn">Kayıt Ol</button>
         </div>
     </div>
 
     <div id="bakiye-modal" class="modal-overlay" onclick="toggleModal('bakiye-modal')">
         <div class="modal-content" onclick="event.stopPropagation()">
             <h2>Ödemeler Discord'da</h2>
-            <a href="https://discord.gg/vicerp" class="hero-btn">Sunucuya Git</a>
+            <a href="https://discord.gg/vicerp" class="hero-btn">Discord'a Git</a>
         </div>
     </div>
 
