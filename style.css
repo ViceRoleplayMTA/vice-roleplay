@@ -1,22 +1,16 @@
-body { background: #050505; color: #ffffff; font-family: 'Segoe UI', sans-serif; margin: 0; }
+body { background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; }
 .red { color: #ff4757; }
 
-/* Navbar - Vira Tarzı */
-.navbar { 
-    display: flex; justify-content: space-between; align-items: center; 
-    padding: 15px 10%; background: #0a0a0a; border-bottom: 2px solid #ff4757; 
-}
-.navbar a { color: #fff; text-decoration: none; margin-left: 25px; font-size: 14px; }
-.login-btn { border: 1px solid #ff4757; padding: 8px 16px; border-radius: 4px; color: #ff4757 !important; }
+/* Menü Tasarımı */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; background: #0a0a0a; border-bottom: 2px solid #ff4757; }
+.navbar a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: 500; }
+.login-btn { border: 1px solid #ff4757; padding: 8px 15px; border-radius: 5px; color: #ff4757 !important; }
 
-/* Ana İçerik */
-#hero { text-align: center; padding: 100px 0; }
-.red-btn { background: #ff4757; border: none; padding: 15px 30px; color: white; border-radius: 5px; font-weight: bold; cursor: pointer; }
+/* İçerik Tasarımı */
+.container { padding: 50px 10%; text-align: center; }
+.download-section { display: flex; justify-content: center; gap: 30px; margin-top: 40px; }
+.card { background: #111; padding: 30px; border-radius: 10px; border: 1px solid #222; width: 300px; }
 
-/* Kartlar */
-#info { display: flex; justify-content: center; gap: 30px; padding: 50px 10%; }
-.card { 
-    background: #111; padding: 30px; border-radius: 8px; 
-    border: 1px solid #222; text-align: center; width: 300px;
-}
-.card:hover { border-color: #ff4757; box-shadow: 0 0 10px rgba(255, 71, 87, 0.2); }
+/* Buton Tasarımı */
+.red-btn { background: #ff4757; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 15px; }
+.red-btn:hover { background: #e84150; }
