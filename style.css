@@ -1,12 +1,28 @@
 body { background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; }
 .red { color: #ff4757; }
 
+/* Hero Bölümü - Arka Plan Eklendi */
+.hero-section {
+    padding: 100px 10%;
+    min-height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.hizliresim.com/qoj9sqe.png');
+    background-size: cover; background-position: center;
+}
+
 /* Navigasyon */
 .navbar { display: flex; justify-content: space-between; padding: 20px 10%; background: #0a0a0a; border-bottom: 2px solid #ff4757; }
-.navbar a { color: #fff; text-decoration: none; margin-left: 20px; cursor: pointer; }
-.login-btn { border: 1px solid #ff4757; padding: 5px 15px; border-radius: 5px; color: #ff4757; }
+.navbar a { color: #fff; text-decoration: none; margin-left: 20px; }
+.login-btn { border: 1px solid #ff4757; padding: 5px 15px; border-radius: 5px; color: #ff4757; cursor: pointer; }
 
-/* Kategori Sistemi */
+/* İçerik Düzeni */
+.activity-bar { background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 50px; display: inline-flex; gap: 20px; align-items: center; border: 1px solid #333; }
+.hero-content { max-width: 600px; margin-top: 50px; }
+h1 { font-size: 3rem; margin: 20px 0; }
+.badge { color: #ff4757; border: 1px solid #ff4757; padding: 5px 15px; border-radius: 20px; }
+
+/* Sağdaki Kutu */
+.hero-video-placeholder { width: 450px; height: 250px; background: #000; border-radius: 15px; position: absolute; right: 10%; top: 30%; border: 1px solid #ff4757; }
+
+/* Gizleme Sistemi */
 .hidden { display: none; }
-.container { padding: 50px 10%; text-align: center; }
-.card { background: #111; padding: 40px; border-radius: 10px; border: 1px solid #ff4757; margin-top: 20px; }
+.card { background: #111; padding: 40px; border-radius: 10px; border: 1px solid #ff4757; margin: 50px 10%; text-align: center; }
