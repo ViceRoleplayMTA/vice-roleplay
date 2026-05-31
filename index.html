@@ -2,51 +2,51 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Vice RP | Modern Portal</title>
+    <title>Vice Roleplay | Kulüp</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="main-content">
-        <header class="top-nav">
-            <div class="logo">VICE <span class="v-color">RP</span></div>
-            <nav class="nav-links">
+        <!-- Üst Menü -->
+        <header class="club-nav">
+            <div class="logo">VICE <span class="v-color">ROLEPLAY</span></div>
+            <nav class="links">
+                <a href="#anasayfa">Ana Sayfa</a>
                 <a href="#hakkimizda">Hakkımızda</a>
-                <a href="#guncellemeler">Güncellemeler</a>
                 <a href="#oyun-indir">Oyun İndir</a>
                 <a href="#" onclick="toggleModal('bakiye-modal')">Bakiye Yükle</a>
-                <a href="#" onclick="toggleModal('login-modal')" class="login-btn">Giriş Yap</a>
             </nav>
+            <button onclick="toggleModal('login-modal')" class="login-btn">Giriş Yap</button>
         </header>
 
-        <!-- Hakkımızda -->
-        <section id="hakkimizda" class="about-section">
-            <div class="about-container">
-                <h2>Vice RP'yi Tanıyın</h2>
-                <div class="about-grid">
-                    <div class="about-text">
-                        <h3>Hikayemiz ve Vizyonumuz</h3>
-                        <p>Vice RP, derinlemesine roleplay deneyimi sunar.</p>
-                        <div class="tags"><span>MTA:SA</span> <span>Roleplay</span></div>
-                    </div>
-                    <div class="about-cards">
-                        <div class="card"><h4>Gelişmiş Yönetim</h4><p>Adil ve aktif yönetim.</p></div>
-                    </div>
+        <!-- KATEGORİ: ANA SAYFA -->
+        <section id="anasayfa" class="section-home">
+            <div class="hero-content">
+                <h1>Vice RP Hakkında</h1>
+                <p>Türkiye'nin en seçkin ve profesyonel roleplay deneyimine hoş geldin.</p>
+            </div>
+        </section>
+
+        <!-- KATEGORİ: HAKKIMIZDA (İçerik Stili Rina Tarzı) -->
+        <section id="hakkimizda" class="club-section">
+            <div class="section-header">Hakkımızda</div>
+            <div class="inner-box">
+                <h3>Kulüp Vizyonumuz</h3>
+                <p>Vice Roleplay, 2021 yılından beri San Andreas dünyasında kalite ve ciddiyeti ilke edinmiştir. Biz sadece bir oyun değil, bir kulüp topluluğuyuz.</p>
+                <div class="stats-bar">
+                    <span>12.000+ Kayıtlı Oyuncu</span>
+                    <span>7/24 Aktif Destek</span>
                 </div>
             </div>
         </section>
 
-        <!-- Güncellemeler -->
-        <section id="guncellemeler" class="update-section">
-            <h2>Sunucu Güncellemeleri</h2>
-            <div class="timeline-container">
-                <div class="timeline-card">
-                    <div class="version-tag">VERSION: BETA</div>
-                    <h4>Sunucu Yapımı & Hata Düzeltmeleri</h4>
-                    <ul class="update-list">
-                        <li><span>➤</span> UCP Paneli Characters hatası giderildi.</li>
-                        <li><span>➤</span> Çekiliş sistemi aktif edildi.</li>
-                    </ul>
-                </div>
+        <!-- KATEGORİ: OYUN İNDİR (İçerik Stili Rina Tarzı) -->
+        <section id="oyun-indir" class="club-section">
+            <div class="section-header">Oyun İndir</div>
+            <div class="inner-box">
+                <h3>Kurulum Gereksinimleri</h3>
+                <p>Vice Roleplay'e katılmak için güncel MTA:SA sürümüne sahip olmalısın.</p>
+                <button class="hero-btn">İndir ve Başla</button>
             </div>
         </section>
     </div>
@@ -57,24 +57,7 @@
             <h2>Giriş Yap</h2>
             <input type="text" placeholder="Kullanıcı Adı">
             <input type="password" placeholder="Şifre">
-            <button class="hero-btn">Giriş Yap</button>
-            <p><a href="#" onclick="toggleModal('login-modal'); toggleModal('register-modal')">Kayıt Ol</a></p>
-        </div>
-    </div>
-
-    <div id="register-modal" class="modal-overlay" onclick="toggleModal('register-modal')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <h2>Kayıt Ol</h2>
-            <input type="text" placeholder="E-posta">
-            <input type="password" placeholder="Şifre">
-            <button class="hero-btn">Kayıt Ol</button>
-        </div>
-    </div>
-
-    <div id="bakiye-modal" class="modal-overlay" onclick="toggleModal('bakiye-modal')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <h2>Ödemeler Discord'da</h2>
-            <a href="https://discord.gg/vicerp" class="hero-btn">Discord'a Git</a>
+            <button class="hero-btn">Giriş</button>
         </div>
     </div>
 
