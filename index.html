@@ -2,70 +2,39 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Vice Roleplay | Kulüp</title>
+    <title>Vice Roleplay | Bağlan</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="main-content">
-        <!-- Üst Menü -->
-        <header class="club-nav">
-            <div class="logo">VICE <span class="v-color">ROLEPLAY</span></div>
-            <nav class="links">
-                <a href="#anasayfa">Ana Sayfa</a>
-                <a href="#hakkimizda">Hakkımızda</a>
-                <a href="#oyun-indir">Oyun İndir</a>
-                <a href="#" onclick="toggleModal('bakiye-modal')">Bakiye Yükle</a>
-            </nav>
-            <button onclick="toggleModal('login-modal')" class="login-btn">Giriş Yap</button>
-        </header>
+    <header class="navbar">
+        <div class="logo">VICE <span class="red">RP</span></div>
+        <nav>
+            <a href="#">Ana Sayfa</a>
+            <a href="#">Hakkımızda</a>
+            <a href="#">Güncellemeler</a>
+            <a href="#">Oyun İndir</a>
+            <a href="#">Bakiye Yükle</a>
+            <a href="#">İnterior Listesi</a>
+            <a href="#" class="login-link">Giriş Yap</a>
+        </nav>
+    </header>
 
-        <!-- KATEGORİ: ANA SAYFA -->
-        <section id="anasayfa" class="section-home">
-            <div class="hero-content">
-                <h1>Vice RP Hakkında</h1>
-                <p>Türkiye'nin en seçkin ve profesyonel roleplay deneyimine hoş geldin.</p>
+    <main class="hero">
+        <h1>Vice RP'ye Bağlanmak İçin İndir</h1>
+        <p>Aşağıdaki adımları takip ederek dakikalar içinde sunucumuza bağlanabilirsin.</p>
+        
+        <div class="download-grid">
+            <div class="card">
+                <h3>GTA: San Andreas</h3>
+                <p>MTA:SA için gerekli ana oyun</p>
+                <button class="red-btn">GTA:SA İndir</button>
             </div>
-        </section>
-
-        <!-- KATEGORİ: HAKKIMIZDA (İçerik Stili Rina Tarzı) -->
-        <section id="hakkimizda" class="club-section">
-            <div class="section-header">Hakkımızda</div>
-            <div class="inner-box">
-                <h3>Kulüp Vizyonumuz</h3>
-                <p>Vice Roleplay, 2021 yılından beri San Andreas dünyasında kalite ve ciddiyeti ilke edinmiştir. Biz sadece bir oyun değil, bir kulüp topluluğuyuz.</p>
-                <div class="stats-bar">
-                    <span>12.000+ Kayıtlı Oyuncu</span>
-                    <span>7/24 Aktif Destek</span>
-                </div>
+            <div class="card">
+                <h3>MTA: San Andreas</h3>
+                <p>Çok oyunculu mod — sunucuya bu ile bağlanırsın</p>
+                <button class="red-btn">Win 10+ İndir</button>
             </div>
-        </section>
-
-        <!-- KATEGORİ: OYUN İNDİR (İçerik Stili Rina Tarzı) -->
-        <section id="oyun-indir" class="club-section">
-            <div class="section-header">Oyun İndir</div>
-            <div class="inner-box">
-                <h3>Kurulum Gereksinimleri</h3>
-                <p>Vice Roleplay'e katılmak için güncel MTA:SA sürümüne sahip olmalısın.</p>
-                <button class="hero-btn">İndir ve Başla</button>
-            </div>
-        </section>
-    </div>
-
-    <!-- Modallar -->
-    <div id="login-modal" class="modal-overlay" onclick="toggleModal('login-modal')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <h2>Giriş Yap</h2>
-            <input type="text" placeholder="Kullanıcı Adı">
-            <input type="password" placeholder="Şifre">
-            <button class="hero-btn">Giriş</button>
         </div>
-    </div>
-
-    <script>
-        function toggleModal(id) {
-            document.getElementById(id).classList.toggle('active');
-            document.getElementById('main-content').classList.toggle('blurred');
-        }
-    </script>
+    </main>
 </body>
 </html>
