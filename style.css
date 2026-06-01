@@ -1,5 +1,5 @@
 /* ================= GENEL AYARLAR ================= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght=400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
 :root {
     --bg-color: #0b0f19;       
@@ -340,7 +340,7 @@ body {
     background-color: var(--primary-color);
 }
 
-/* ================= YENİ ÜRÜNLER İÇİN TASARIMLAR ================= */
+/* ================= GÜNCELLENEN ÜRÜN KARTLARI VE SATIN ALMA ALANLARI ================= */
 .products-container {
     animation: fadeIn 0.4s ease-in-out;
 }
@@ -354,7 +354,7 @@ body {
     cursor: pointer;
     font-family: inherit;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     transition: background-color 0.2s;
 }
 
@@ -362,53 +362,97 @@ body {
     background-color: #374151;
 }
 
-.subcategory-title {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    color: var(--primary-color);
-    border-left: 4px solid var(--primary-color);
-    padding-left: 0.75rem;
-}
-
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
 }
 
 .product-card {
     background-color: var(--card-bg);
     border: 1px solid #1f2937;
     padding: 1.5rem;
-    border-radius: 1rem;
+    border-radius: 1.25rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 1rem;
-    transition: box-shadow 0.3s;
+    gap: 0.75rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
 }
 
 .product-card:hover {
-    box-shadow: 0 0 15px rgba(14, 165, 233, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border-color: rgba(14, 165, 233, 0.4);
+}
+
+.prod-icon {
+    font-size: 2rem;
+    background: rgba(255,255,255,0.03);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .product-card h4 {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
+    color: #f8fafc;
 }
 
 .product-card p {
     font-size: 0.85rem;
     color: var(--text-muted);
+    min-height: 40px;
 }
 
 .product-card .price {
     font-weight: 800;
     color: #22c55e;
-    font-size: 1.2rem;
-    text-align: right;
+    font-size: 1.3rem;
+    margin-top: auto;
+    display: block;
+}
+
+/* Satın Alma Bölümü (Adet + Buton) */
+.buy-action {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
     border-top: 1px solid #1f2937;
-    padding-top: 0.5rem;
+    padding-top: 1rem;
+}
+
+.buy-action input[type="number"] {
+    width: 60px;
+    background: #0f172a;
+    border: 1px solid #374151;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+}
+
+.buy-action button {
+    flex-grow: 1;
+    background: var(--primary-hover);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.buy-action button:hover {
+    background: var(--primary-color);
 }
 
 @keyframes fadeIn {
