@@ -3,24 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunucu Adı | Minecraft Sunucusu</title>
+    <title>Saloon Network | Mağaza</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo" onclick="navigateTo('home')">SUNUCU<span>ADI</span></div>
+        <div class="logo-area">
+            <div class="logo" onclick="navigateTo('home')">SALOON<span>NETWORK</span></div>
+        </div>
         
-        <div class="nav-right-container">
-            <div class="nav-links">
-                <a onclick="navigateTo('home')">Ana Sayfa</a>
-                <a onclick="navigateTo('home')">Özellikler</a>
-                <a class="btn-store" onclick="navigateTo('store')">Mağaza</a>
+        <div class="nav-links">
+            <a onclick="navigateTo('store')" class="active-link">Mağaza</a>
+            <a onclick="navigateTo('home')">Kredi</a>
+            <a onclick="navigateTo('home')">Yardım Merkezi</a>
+            <a onclick="navigateTo('home')">Başvuru</a>
+            <a onclick="navigateTo('home')">Gaming Gecesi</a>
+            <a onclick="navigateTo('home')">Güncelleme</a>
+            <a onclick="navigateTo('home')">EN İYİLER</a>
+        </div>
+
+        <div class="nav-right-user">
+            <div class="custom-cart-button" onclick="toggleCartMenu()">
+                <div class="cart-icon-wrapper">
+                    <svg viewBox="0 0 24 24" class="store-cart-svg">
+                        <path d="M17.21 9l-4.38-6.56c-.19-.28-.51-.42-.83-.42-.32 0-.64.14-.83.43L6.79 9H2c-.55 0-1 .45-1 1 0 .09.01.18.04.27l2.54 9.27c.23.84 1 1.46 1.87 1.46h13.1c.87 0 1.64-.62 1.87-1.46l2.54-9.27c.03-.09.04-.18.04-.27 0-.55-.45-1-1-1h-4.79zM9 9l3-4.5L15 9H9zm3 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                    </svg>
+                    <span id="cart-count" class="green-cart-badge">0</span>
+                </div>
             </div>
-            
-            <div class="cart-nav-box" onclick="toggleCartMenu()">
-                <span class="cart-emoji">🛒</span>
-                <span id="cart-count" class="cart-badge">0</span>
+
+            <div class="user-profile-menu">
+                <div class="profile-avatar"></div>
+                <div class="profile-info">
+                    <span class="username">Pandix</span>
+                    <span class="usermenu-text">MENU</span>
+                </div>
             </div>
         </div>
     </nav>
@@ -45,52 +63,26 @@
     </div>
     <div id="cart-overlay" class="cart-overlay" onclick="toggleCartMenu()"></div>
 
-    <div id="home-page">
+    <div id="home-page" class="hidden">
         <header class="hero">
             <h1>Maceraya <span>Hazır Mısın?</span></h1>
-            <p>Türkiye'nin en gelişmiş sistemlerine sahip, adaletin ve eğlencenin ön planda olduğu yeni nesil Minecraft sunucusu!</p>
-
+            <p>Saloon Network dünyasına giriş yapmak için IP adresimizi kopyalayabilirsin.</p>
             <div class="ip-container">
-                <div class="ip-details">
-                    <span class="ip-title">Sunucu Adresi</span>
-                    <span id="server-ip" class="ip-text">play.sunucuadi.com</span>
-                </div>
+                <span id="server-ip" class="ip-text">play.saloonnetwork.com</span>
                 <button onclick="copyIP()" class="btn-copy">Kopyala</button>
             </div>
-            <span id="copy-toast" class="toast">IP Adresi Kopyalandı!</span>
         </header>
-
-        <section id="ozellikler" class="features-section">
-            <h2>Neden Bizim Sunucumuz?</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Yüksek Performans</h3>
-                    <p>Özel optimize edilmiş işlemcilerimiz sayesinde 20 TPS sabit performansla lagsız bir oyun deneyimi sunuyoruz.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">⚔️</div>
-                    <h3>Özel Sistemler</h3>
-                    <p>Başka yerde görmediğiniz özel zindanlar, görevler ve tamamen dengelenmiş bir ekonomi sistemi sizi bekliyor.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🛡️</div>
-                    <h3>Adil Yönetim</h3>
-                    <p>Hile korumalarımız ve 7/24 aktif rehber kadromuzla tüm oyuncular için adil bir ortam sağlıyoruz.</p>
-                </div>
-            </div>
-        </section>
     </div>
 
-    <div id="store-page" class="hidden">
+    <div id="store-page">
         <div class="store-hero">
             <div class="store-hero-content">
                 <span class="store-tag">MAĞAZA</span>
-                <h1>Sunucu Mağazası</h1>
-                <p>Resmi mağazamıza hoş geldiniz. Oyun zevkinizi katlayacak rütbeler, kasalar ve özel eşyalar aşağıda listelenmiştir.</p>
+                <h1>Saloon Network Mağazası</h1>
+                <p>Resmi Saloon Network Mağazasına Hoşgeldiniz. Bu, oyuncu deneyiminizi geliştirmeniz için yerinizdir. VIP, Item ve boosters sunuyoruz.</p>
             </div>
-            <div class="store-hero-img">
-                <img src="https://images.unsplash.com/photo-1607988795691-3d0147b43231?auto=format&fit=crop&w=500&q=80" alt="Store">
+            <div class="store-hero-img-box">
+                <img src="https://images.unsplash.com/photo-1607988795691-3d0147b43231?auto=format&fit=crop&w=500&q=80" alt="Minecraft Character">
             </div>
         </div>
 
@@ -98,87 +90,96 @@
             <h2 class="categories-title" id="store-section-title">Kategoriler</h2>
             
             <div class="categories-grid" id="categories-main-grid">
-                <div class="category-card" onclick="openCategory('vip-products')">
+                
+                <div class="category-card" onclick="openCategory('gokyuzu-tekblok')">
                     <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=400&q=80">
+                        <div class="cat-mock-img blue-theme">GÖKYÜZÜ TEKBLOK</div>
                     </div>
                     <div class="category-footer">
-                        <span class="category-name">VIP Üyelikler</span>
+                        <span class="category-name">Gökyüzü Tekblok</span>
                         <button class="category-btn">&gt;</button>
                     </div>
                 </div>
 
-                <div class="category-card" onclick="openCategory('tekblok-products')">
+                <div class="category-card" onclick="openCategory('tekblok-skyblock')">
                     <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80">
+                        <div class="cat-mock-img green-theme">TEKBLOK SKYBLOCK</div>
                     </div>
                     <div class="category-footer">
-                        <span class="category-name">Skyblock / Tekblok</span>
+                        <span class="category-name">TekBlok</span>
                         <button class="category-btn">&gt;</button>
                     </div>
                 </div>
 
-                <div class="category-card" onclick="openCategory('survival-products')">
+                <div class="category-card" onclick="openCategory('kita-survival')">
                     <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=400&q=80">
+                        <div class="cat-mock-img jungle-theme">KITA SURVIVAL</div>
                     </div>
                     <div class="category-footer">
-                        <span class="category-name">Survival Lifesteal</span>
+                        <span class="category-name">Kıta Survival</span>
                         <button class="category-btn">&gt;</button>
                     </div>
                 </div>
 
-                <div class="category-card" onclick="openCategory('crate-products')">
+                <div class="category-card" onclick="openCategory('kanyon-lifesteal')">
                     <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&w=400&q=80">
+                        <div class="cat-mock-img orange-theme">KANYON LIFESTEAL</div>
                     </div>
                     <div class="category-footer">
-                        <span class="category-name">Kasa Anahtarları</span>
+                        <span class="category-name">Kanyon Lifesteal</span>
                         <button class="category-btn">&gt;</button>
                     </div>
                 </div>
+
+                <div class="category-card" onclick="openCategory('kit-pvp')">
+                    <div class="category-img-box">
+                        <div class="cat-mock-img red-theme">KIT PVP</div>
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">KitPvP</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="openCategory('vanilla-smp')">
+                    <div class="category-img-box">
+                        <div class="cat-mock-img dark-theme">VANILLA SMP</div>
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">SMP</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
             </div>
 
-            <div id="vip-products" class="products-container hidden">
+            <div id="gokyuzu-tekblok" class="products-container hidden">
                 <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
                 <div class="products-grid">
-                    <div class="product-card"><div class="prod-icon">👑</div><h4>VIP Üyelik</h4><p>1 Aylık temel ayrıcalıklar.</p><span class="price">50 TL</span><div class="buy-action"><input type="number" id="qty-vip-1" value="1" min="1"><button onclick="addToCart('VIP Üyelik', 50, 'qty-vip-1')">Sepete Ekle</button></div></div>
-                    <div class="product-card"><div class="prod-icon">💎</div><h4>VIP+ Üyelik</h4><p>Daha fazla yetki ve özel kitler.</p><span class="price">90 TL</span><div class="buy-action"><input type="number" id="qty-vip-2" value="1" min="1"><button onclick="addToCart('VIP+ Üyelik', 90, 'qty-vip-2')">Sepete Ekle</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔮</div><h4>MVIP Üyelik</h4><p>Sunucuda uçma ve yazı renkleri.</p><span class="price">150 TL</span><div class="buy-action"><input type="number" id="qty-vip-3" value="1" min="1"><button onclick="addToCart('MVIP Üyelik', 150, 'qty-vip-3')">Sepete Ekle</button></div></div>
-                    <div class="product-card"><div class="prod-icon">✨</div><h4>MVIP+ Üyelik</h4><p>En popüler rütbe, limitsiz arsa.</p><span class="price">220 TL</span><div class="buy-action"><input type="number" id="qty-vip-4" value="1" min="1"><button onclick="addToCart('MVIP+ Üyelik', 220, 'qty-vip-4')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><h4>VIP Paket</h4><p>Gökyüzü Tekblok sunucusuna özel ayrıcalıklar.</p><span class="price">50 TL</span><div class="buy-action"><input type="number" id="qty-gt-1" value="1" min="1"><button onclick="addToCart('Gökyüzü VIP', 50, 'qty-gt-1')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><h4>Hızlandırıcı Kiti</h4><p>Gelişiminizi 2 kat hızlandıracak başlangıç eşyaları.</p><span class="price">25 TL</span><div class="buy-action"><input type="number" id="qty-gt-2" value="1" min="1"><button onclick="addToCart('GT Hızlandırıcı', 25, 'qty-gt-2')">Sepete Ekle</button></div></div>
                 </div>
             </div>
 
-            <div id="tekblok-products" class="products-container hidden">
+            <div id="tekblok-skyblock" class="products-container hidden">
                 <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
                 <div class="products-grid">
-                    <div class="product-card"><div class="prod-icon">⚙️</div><h4>Demir Spawner</h4><p>Otomatik demir üreten başlangıç sp.</p><span class="price">30 TL</span><div class="buy-action"><input type="number" id="qty-tb-1" value="1" min="1"><button onclick="addToCart('Demir Spawner', 30, 'qty-tb-1')">Sepete Ekle</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🟡</div><h4>Altın Spawner</h4><p>Ekonominizi hızlandıracak altın sp.</p><span class="price">45 TL</span><div class="buy-action"><input type="number" id="qty-tb-2" value="1" min="1"><button onclick="addToCart('Altın Spawner', 45, 'qty-tb-2')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><h4>Zümrüt Spawner</h4><p>Dengeli ve yüksek kazanç sağlayan özel spawner.</p><span class="price">75 TL</span><div class="buy-action"><input type="number" id="qty-ts-1" value="1" min="1"><button onclick="addToCart('Zümrüt Spawner', 75, 'qty-ts-1')">Sepete Ekle</button></div></div>
                 </div>
             </div>
 
-            <div id="survival-products" class="products-container hidden">
+            <div id="kita-survival" class="products-container hidden">
                 <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
                 <div class="products-grid">
-                    <div class="product-card"><div class="prod-icon">❤️</div><h4>+1 Kalp Konteyneri</h4><p>Kalıcı olarak can sınırını 1 artırır.</p><span class="price">20 TL</span><div class="buy-action"><input type="number" id="qty-sv-1" value="1" min="1"><button onclick="addToCart('+1 Kalp Konteyneri', 20, 'qty-sv-1')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><h4>+5 Ekstra Kalp</h4><p>Kıta savaşlarında rakiplerinize karşı kalıcı can avantajı.</p><span class="price">40 TL</span><div class="buy-action"><input type="number" id="qty-ks-1" value="1" min="1"><button onclick="addToCart('+5 Kalp Paketi', 40, 'qty-ks-1')">Sepete Ekle</button></div></div>
                 </div>
             </div>
-
-            <div id="crate-products" class="products-container hidden">
-                <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
-                <div class="products-grid">
-                    <div class="product-card"><div class="prod-icon">🔑</div><h4>1x Oyuncu Kasası</h4><p>Temel ödüller veren kasa anahtarı.</p><span class="price">5 TL</span><div class="buy-action"><input type="number" id="qty-cr-1" value="1" min="1"><button onclick="addToCart('1x Oyuncu Kasası', 5, 'qty-cr-1')">Sepete Ekle</button></div></div>
-                </div>
-            </div>
-        </section>
+            
+            </section>
     </div>
 
     <footer class="footer">
-        <div>&copy; 2026 SunucuAdi. Tüm hakları saklıdır.</div>
-        <div class="footer-links">
-            <a href="#">Discord</a>
-            <a href="#">Kullanım Şartları</a>
-        </div>
+        <div>&copy; 2026 Saloon Network. Tüm hakları saklıdır.</div>
     </footer>
 
     <script>
@@ -190,30 +191,27 @@
             if (page === 'store') {
                 homeSection.classList.add('hidden');
                 storeSection.classList.remove('hidden');
-                closeCategory(); 
-                window.scrollTo(0, 0);
-            } else if (page === 'home') {
+                closeCategory();
+            } else {
                 storeSection.classList.add('hidden');
                 homeSection.classList.remove('hidden');
             }
         }
 
-        function copyIP() {
-            var ipText = document.getElementById('server-ip').innerText;
-            navigator.clipboard.writeText(ipText).then(function() {
-                var toast = document.getElementById('copy-toast');
-                toast.classList.add('show');
-                setTimeout(function() { toast.classList.remove('show'); }, 2000);
-            });
-        }
-
         function openCategory(containerId) {
             document.getElementById('categories-main-grid').classList.add('hidden');
-            document.getElementById('store-section-title').innerText = "Ürünler";
+            
             var containers = document.querySelectorAll('.products-container');
             containers.forEach(function(el) { el.classList.add('hidden'); });
-            document.getElementById(containerId).classList.remove('hidden');
-            window.scrollTo(0, 300);
+
+            var activeContainer = document.getElementById(containerId);
+            if(activeContainer) {
+                activeContainer.classList.remove('hidden');
+                document.getElementById('store-section-title').innerText = "Ürünler";
+            } else {
+                alert("Bu kategorinin ürünleri yakında eklenecektir!");
+                closeCategory();
+            }
         }
 
         function closeCategory() {
@@ -224,10 +222,8 @@
         }
 
         function toggleCartMenu() {
-            var drawer = document.getElementById('cart-drawer');
-            var overlay = document.getElementById('cart-overlay');
-            drawer.classList.toggle('open');
-            overlay.classList.toggle('active');
+            document.getElementById('cart-drawer').classList.toggle('open');
+            document.getElementById('cart-overlay').classList.toggle('active');
         }
 
         function addToCart(name, price, inputId) {
@@ -242,9 +238,6 @@
             }
             document.getElementById(inputId).value = 1;
             updateCartUI();
-            
-            // Kullanıcıya eklendiğini belli etmek için sepeti otomatik açalım
-            toggleCartMenu();
         }
 
         function removeFromCart(name) {
@@ -257,6 +250,7 @@
             var cartCount = document.getElementById('cart-count');
             var cartTotal = document.getElementById('cart-total-price');
 
+            // Toplam adet sayısını hesapla
             var totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.innerText = totalItems;
 
@@ -292,11 +286,8 @@
         }
 
         function checkout() {
-            if(cart.length === 0) {
-                alert("Sepetiniz boş!");
-                return;
-            }
-            alert("Ödeme sayfasına yönlendiriliyorsunuz... Toplam: " + document.getElementById('cart-total-price').innerText);
+            if(cart.length === 0) return alert("Sepetiniz boş!");
+            alert("Ödeme sayfasına yönlendiriliyorsunuz. Tutar: " + document.getElementById('cart-total-price').innerText);
         }
     </script>
 </body>
