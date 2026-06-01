@@ -9,49 +9,130 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">SUNUCU<span>ADI</span></div>
+        <div class="logo" onclick="showPage('home')" style="cursor: pointer;">SUNUCU<span>ADI</span></div>
         <div class="nav-links">
-            <a href="#">Ana Sayfa</a>
-            <a href="#ozellikler">Özellikler</a>
-            <a href="#hakkimizda">Hakkımızda</a>
-            <a href="#" class="btn-store">Mağaza</a>
+            <a href="#" onclick="showPage('home')">Ana Sayfa</a>
+            <a href="#ozellikler" onclick="showPage('home')">Özellikler</a>
+            <a href="#" class="btn-store" onclick="showPage('store')">Mağaza</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1>Maceraya <span>Hazır Mısın?</span></h1>
-        <p>Türkiye'nin en gelişmiş sistemlerine sahip, adaletin ve eğlencenin ön planda olduğu yeni nesil Minecraft sunucusu!</p>
+    <div id="home-page">
+        <header class="hero">
+            <h1>Maceraya <span>Hazır Mısın?</span></h1>
+            <p>Türkiye'nin en gelişmiş sistemlerine sahip, adaletin ve eğlencenin ön planda olduğu yeni nesil Minecraft sunucusu!</p>
 
-        <div class="ip-container">
-            <div class="ip-details">
-                <span class="ip-title">Sunucu Adresi</span>
-                <span id="server-ip" class="ip-text">play.sunucuadi.com</span>
+            <div class="ip-container">
+                <div class="ip-details">
+                    <span class="ip-title">Sunucu Adresi</span>
+                    <span id="server-ip" class="ip-text">play.sunucuadi.com</span>
+                </div>
+                <button onclick="copyIP()" class="btn-copy">Kopyala</button>
             </div>
-            <button onclick="copyIP()" class="btn-copy">Kopyala</button>
-        </div>
-        <span id="copy-toast" class="toast">IP Adresi Kopyalandı!</span>
-    </header>
+            <span id="copy-toast" class="toast">IP Adresi Kopyalandı!</span>
+        </header>
 
-    <section id="ozellikler" class="features-section">
-        <h2>Neden Bizim Sunucumuz?</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>Yüksek Performans</h3>
-                <p>Özel optimize edilmiş işlemcilerimiz sayesinde 20 TPS sabit performansla lagsız bir oyun deneyimi sunuyoruz.</p>
+        <section id="ozellikler" class="features-section">
+            <h2>Neden Bizim Sunucumuz?</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Yüksek Performans</h3>
+                    <p>Özel optimize edilmiş işlemcilerimiz sayesinde 20 TPS sabit performansla lagsız bir oyun deneyimi sunuyoruz.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚔️</div>
+                    <h3>Özel Sistemler</h3>
+                    <p>Başka yerde görmediğiniz özel zindanlar, görevler ve tamamen dengelenmiş bir ekonomi sistemi sizi bekliyor.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Adil Yönetim</h3>
+                    <p>Hile korumalarımız ve 7/24 aktif rehber kadromuzla tüm oyuncular için adil bir ortam sağlıyoruz.</p>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-icon">⚔️</div>
-                <h3>Özel Sistemler</h3>
-                <p>Başka yerde görmediğiniz özel zindanlar, görevler ve tamamen dengelenmiş bir ekonomi sistemi sizi bekliyor.</p>
+        </section>
+    </div>
+
+    <div id="store-page" class="hidden">
+        <div class="store-hero">
+            <div class="store-hero-content">
+                <span class="store-tag">MAĞAZA</span>
+                <h1>Sunucu Mağazası</h1>
+                <p>Resmi sunucu mağazasına hoş geldiniz. Bu, oyuncu deneyiminizi geliştirmeniz için yerinizdir. VIP, Item ve kasalar sunuyoruz.</p>
             </div>
-            <div class="card">
-                <div class="card-icon">🛡️</div>
-                <h3>Adil Yönetim</h3>
-                <p>Hile korumalarımız ve 7/24 aktif rehber kadromuzla tüm oyuncular için adil bir ortam sağlıyoruz.</p>
+            <div class="store-hero-img">
+                <img src="https://images.unsplash.com/photo-1607988795691-3d0147b43231?auto=format&fit=crop&w=500&q=80" alt="Minecraft Store">
             </div>
         </div>
-    </section>
+
+        <section class="categories-section">
+            <h2 class="categories-title">Kategoriler</h2>
+            <div class="categories-grid">
+                
+                <div class="category-card">
+                    <div class="category-img-box">
+                        <img src="https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=400&q=80" alt="Kategori 1">
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">Kategori İsmi 1</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img-box">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80" alt="Kategori 2">
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">Kategori İsmi 2</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img-box">
+                        <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=400&q=80" alt="Kategori 3">
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">Kategori İsmi 3</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img-box">
+                        <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&w=400&q=80" alt="Kategori 4">
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">Kategori İsmi 4</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img-box">
+                        <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=400&q=80" alt="Kategori 5">
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">Kategori İsmi 5</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img-box">
+                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=400&q=80" alt="Kategori 6">
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">Kategori İsmi 6</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
 
     <footer class="footer">
         <div>&copy; 2026 SunucuAdi. Tüm hakları saklıdır.</div>
@@ -62,6 +143,20 @@
     </footer>
 
     <script>
+        function showPage(pageId) {
+            const home = document.getElementById('home-page');
+            const store = document.getElementById('store-page');
+            
+            if (pageId === 'store') {
+                home.classList.add('hidden');
+                store.classList.remove('hidden');
+                window.scrollTo(0, 0);
+            } else {
+                home.classList.remove('hidden');
+                store.classList.add('hidden');
+            }
+        }
+
         function copyIP() {
             const ipText = document.getElementById('server-ip').innerText;
             navigator.clipboard.writeText(ipText).then(() => {
