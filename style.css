@@ -1,28 +1,77 @@
-body { background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; }
-.red { color: #ff4757; }
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunucu Adı | Minecraft Sunucusu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* Hero Bölümü - Arka Plan Eklendi */
-.hero-section {
-    padding: 100px 10%;
-    min-height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.hizliresim.com/qoj9sqe.png');
-    background-size: cover; background-position: center;
-}
+    <nav class="navbar">
+        <div class="logo">SUNUCU<span>ADI</span></div>
+        <div class="nav-links">
+            <a href="#">Ana Sayfa</a>
+            <a href="#ozellikler">Özellikler</a>
+            <a href="#hakkimizda">Hakkımızda</a>
+            <a href="#" class="btn-store">Mağaza</a>
+        </div>
+    </nav>
 
-/* Navigasyon */
-.navbar { display: flex; justify-content: space-between; padding: 20px 10%; background: #0a0a0a; border-bottom: 2px solid #ff4757; }
-.navbar a { color: #fff; text-decoration: none; margin-left: 20px; }
-.login-btn { border: 1px solid #ff4757; padding: 5px 15px; border-radius: 5px; color: #ff4757; cursor: pointer; }
+    <header class="hero">
+        <h1>Maceraya <span>Hazır Mısın?</span></h1>
+        <p>Türkiye'nin en gelişmiş sistemlerine sahip, adaletin ve eğlencenin ön planda olduğu yeni nesil Minecraft sunucusu!</p>
 
-/* İçerik Düzeni */
-.activity-bar { background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 50px; display: inline-flex; gap: 20px; align-items: center; border: 1px solid #333; }
-.hero-content { max-width: 600px; margin-top: 50px; }
-h1 { font-size: 3rem; margin: 20px 0; }
-.badge { color: #ff4757; border: 1px solid #ff4757; padding: 5px 15px; border-radius: 20px; }
+        <div class="ip-container">
+            <div class="ip-details">
+                <span class="ip-title">Sunucu Adresi</span>
+                <span id="server-ip" class="ip-text">play.sunucuadi.com</span>
+            </div>
+            <button onclick="copyIP()" class="btn-copy">Kopyala</button>
+        </div>
+        <span id="copy-toast" class="toast">IP Adresi Kopyalandı!</span>
+    </header>
 
-/* Sağdaki Kutu */
-.hero-video-placeholder { width: 450px; height: 250px; background: #000; border-radius: 15px; position: absolute; right: 10%; top: 30%; border: 1px solid #ff4757; }
+    <section id="ozellikler" class="features-section">
+        <h2>Neden Bizim Sunucumuz?</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Yüksek Performans</h3>
+                <p>Özel optimize edilmiş işlemcilerimiz sayesinde 20 TPS sabit performansla lagsız bir oyun deneyimi sunuyoruz.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚔️</div>
+                <h3>Özel Sistemler</h3>
+                <p>Başka yerde görmediğiniz özel zindanlar, görevler ve tamamen dengelenmiş bir ekonomi sistemi sizi bekliyor.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Adil Yönetim</h3>
+                <p>Hile korumalarımız ve 7/24 aktif rehber kadromuzla tüm oyuncular için adil bir ortam sağlıyoruz.</p>
+            </div>
+        </div>
+    </section>
 
-/* Gizleme Sistemi */
-.hidden { display: none; }
-.card { background: #111; padding: 40px; border-radius: 10px; border: 1px solid #ff4757; margin: 50px 10%; text-align: center; }
+    <footer class="footer">
+        <div>&copy; 2026 SunucuAdi. Tüm hakları saklıdır.</div>
+        <div class="footer-links">
+            <a href="#">Discord</a>
+            <a href="#">Kullanım Şartları</a>
+        </div>
+    </footer>
+
+    <script>
+        function copyIP() {
+            const ipText = document.getElementById('server-ip').innerText;
+            navigator.clipboard.writeText(ipText).then(() => {
+                const toast = document.getElementById('copy-toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
