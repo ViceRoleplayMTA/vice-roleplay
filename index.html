@@ -59,78 +59,131 @@
             <div class="store-hero-content">
                 <span class="store-tag">MAĞAZA</span>
                 <h1>Sunucu Mağazası</h1>
-                <p>Resmi mağazamıza hoş geldiniz. Bu bölüm oyuncu deneyiminizi en üst seviyeye taşımak için hazırlanmıştır. Kategori altından oyun modunu seçerek alışverişe başlayabilirsiniz.</p>
+                <p>Resmi mağazamıza hoş geldiniz. Oyun zevkinizi katlayacak rütbeler, kasalar ve özel eşyalar aşağıda listelenmiştir.</p>
             </div>
             <div class="store-hero-img">
-                <img src="https://images.unsplash.com/photo-1607988795691-3d0147b43231?auto=format&fit=crop&w=500&q=80" alt="Minecraft Store">
+                <img src="https://images.unsplash.com/photo-1607988795691-3d0147b43231?auto=format&fit=crop&w=500&q=80" alt="Store">
             </div>
         </div>
 
         <section class="categories-section">
             <h2 class="categories-title">Kategoriler</h2>
-            <div class="categories-grid">
+            
+            <div class="categories-grid" id="categories-main-grid">
                 
-                <div class="category-card">
+                <div class="category-card" onclick="openCategory('vip-products')">
                     <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=400&q=80" alt="Kategori">
+                        <img src="https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=400&q=80">
                     </div>
                     <div class="category-footer">
-                        <span class="category-name">Kategori İsmi 1</span>
+                        <span class="category-name">VIP Üyelikler</span>
                         <button class="category-btn">&gt;</button>
                     </div>
                 </div>
 
-                <div class="category-card">
+                <div class="category-card" onclick="openCategory('tekblok-products')">
                     <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80" alt="Kategori">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80">
                     </div>
                     <div class="category-footer">
-                        <span class="category-name">Kategori İsmi 2</span>
+                        <span class="category-name">Skyblock / Tekblok</span>
                         <button class="category-btn">&gt;</button>
                     </div>
                 </div>
 
-                <div class="category-card">
+                <div class="category-card" onclick="openCategory('survival-products')">
                     <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=400&q=80" alt="Kategori">
+                        <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=400&q=80">
                     </div>
                     <div class="category-footer">
-                        <span class="category-name">Kategori İsmi 3</span>
+                        <span class="category-name">Survival Lifesteal</span>
                         <button class="category-btn">&gt;</button>
                     </div>
                 </div>
 
-                <div class="category-card">
+                <div class="category-card" onclick="openCategory('crate-products')">
                     <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&w=400&q=80" alt="Kategori">
+                        <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&w=400&q=80">
                     </div>
                     <div class="category-footer">
-                        <span class="category-name">Kategori İsmi 4</span>
-                        <button class="category-btn">&gt;</button>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=400&q=80" alt="Kategori">
-                    </div>
-                    <div class="category-footer">
-                        <span class="category-name">Kategori İsmi 5</span>
-                        <button class="category-btn">&gt;</button>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=400&q=80" alt="Kategori">
-                    </div>
-                    <div class="category-footer">
-                        <span class="category-name">Kategori İsmi 6</span>
+                        <span class="category-name">Kasa Anahtarları</span>
                         <button class="category-btn">&gt;</button>
                     </div>
                 </div>
 
             </div>
+
+            <div id="vip-products" class="products-container hidden">
+                <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
+                <h3 class="subcategory-title">VIP Üyelikler ve Paketler</h3>
+                <div class="products-grid">
+                    <div class="product-card"><h4>VIP Üyelik</h4><p>1 Aylık temel sunucu ayrıcalıkları.</p><span class="price">50 TL</span></div>
+                    <div class="product-card"><h4>VIP+ Üyelik</h4><p>Daha fazla yetki ve özel kitler.</p><span class="price">90 TL</span></div>
+                    <div class="product-card"><h4>MVIP Üyelik</h4><p>Sunucuda uçma ve özel yazı renkleri.</p><span class="price">150 TL</span></div>
+                    <div class="product-card"><h4>MVIP+ Üyelik</h4><p>En popüler rütbe, limitsiz arsa hakkı.</p><span class="price">220 TL</span></div>
+                    <div class="product-card"><h4>Sınırsız VIP</h4><p>Süre sınırı olmadan ömür boyu VIP keyfi.</p><span class="price">400 TL</span></div>
+                    <div class="product-card"><h4>Sınırsız MVIP+</h4><p>Ömür boyu en üst düzey yetki paketi.</p><span class="price">750 TL</span></div>
+                    <div class="product-card"><h4>Özel Tag Satın Al</h4><p>İsminin başına dilediğin yazıyı yaz.</p><span class="price">40 TL</span></div>
+                    <div class="product-card"><h4>Giriş Mesajı Değiştir</h4><p>Oyuna girince ekranda havalı yazı çıksın.</p><span class="price">30 TL</span></div>
+                    <div class="product-card"><h4>+5 Arsa Hakkı</h4><p>Mevcut sınırına ek 5 arsa/ada hakkı.</p><span class="price">25 TL</span></div>
+                    <div class="product-card"><h4>Renk Değiştirme</h4><p>Tab ve sohbet isminin rengini ayarla.</p><span class="price">20 TL</span></div>
+                </div>
+            </div>
+
+            <div id="tekblok-products" class="products-container hidden">
+                <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
+                <h3 class="subcategory-title">Skyblock / Tekblok Eşyaları</h3>
+                <div class="products-grid">
+                    <div class="product-card"><h4>Demir Spawner</h4><p>Otomatik demir üreten başlangıç spawnerı.</p><span class="price">30 TL</span></div>
+                    <div class="product-card"><h4>Altın Spawner</h4><p>Ekonominizi hızlandıracak altın üretici.</p><span class="price">45 TL</span></div>
+                    <div class="product-card"><h4>Elmas Spawner</h4><p>Gelişmiş adalar için yüksek kazanç.</p><span class="price">75 TL</span></div>
+                    <div class="product-card"><h4>Netherite Spawner</h4><p>En üst düzey otomatik maden spawnerı.</p><span class="price">120 TL</span></div>
+                    <div class="product-card"><h4>Oto-Satış Sandığı</h4><p>İçine düşen her şeyi otomatik satar.</p><span class="price">60 TL</span></div>
+                    <div class="product-card"><h4>Ada Seviye Booster (1 Saat)</h4><p>1 saat boyunca ada puanlarını ikiye katlar.</p><span class="price">15 TL</span></div>
+                    <div class="product-card"><h4>Minyon Paketi</h4><p>Sizin yerinize maden kazan madenci robot.</p><span class="price">50 TL</span></div>
+                    <div class="product-card"><h4>Çiftçi Minyonu</h4><p>Ekinleri otomatik toplar ve depolar.</p><span class="price">50 TL</span></div>
+                    <div class="product-card"><h4>64x Tecrübe Şişesi</h4><p>Hızlıca büyü basmanız için XP paketi.</p><span class="price">10 TL</span></div>
+                    <div class="product-card"><h4>Sünger Paketi (16 Adet)</h4><p>Adadaki suları kolayca temizleyin.</p><span class="price">15 TL</span></div>
+                    <div class="product-card"><h4>Uçuş Kağıdı (3 Gün)</h4><p>Adanızda 3 gün boyunca uçmanızı sağlar.</p><span class="price">20 TL</span></div>
+                    <div class="product-card"><h4>Ada Sınırı Genişletme</h4><p>Adanızın maksimum boyutunu büyütür.</p><span class="price">40 TL</span></div>
+                </div>
+            </div>
+
+            <div id="survival-products" class="products-container hidden">
+                <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
+                <h3 class="subcategory-title">Survival Lifesteal Paketi</h3>
+                <div class="products-grid">
+                    <div class="product-card"><h4>+1 Kalp Konteyneri</h4><p>Kalıcı olarak can sınırınızı 1 kalp artırır.</p><span class="price">20 TL</span></div>
+                    <div class="product-card"><h4>+5 Kalp Paketi</h4><p>Lifesteal modunda büyük can avantajı sağlar.</p><span class="price">80 TL</span></div>
+                    <div class="product-card"><h4>Canlandırma İşareti</h4><p>Elenen bir takım arkadaşınızı geri getirin.</p><span class="price">50 TL</span></div>
+                    <div class="product-card"><h4>Verimlilik VI Kitabı</h4><p>Normalde çıkmayan özel koruma/kazma büyüsü.</p><span class="price">35 TL</span></div>
+                    <div class="product-card"><h4>Keskinlik VI Kitabı</h4><p>Savaşlarda üstünlük kuracak efsanevi büyü.</p><span class="price">40 TL</span></div>
+                    <div class="product-card"><h4>İpeksi Dokunuş II</h4><p>Özel blokları kırıp hasarsız envantere alır.</p><span class="price">30 TL</span></div>
+                    <div class="product-card"><h4>Netherite Seti</h4><p>Full büyülü, savaşa hazır koruma 4 zırh seti.</p><span class="price">45 TL</span></div>
+                    <div class="product-card"><h4>Ender Sandığı Geliştirme</h4><p>Ender sandığınızın içine +1 sayfa ekler.</p><span class="price">25 TL</span></div>
+                    <div class="product-card"><h4>Rastgele Işınlanma Bileti</h4><p>Haritada kimsenin olmadığı bir yere ışınlar.</p><span class="price">5 TL</span></div>
+                    <div class="product-card"><h4>Claim Bloğu Paketi (500)</h4><p>Evinizi korumak için ekstra claim alanı.</p><span class="price">15 TL</span></div>
+                    <div class="product-card"><h4>Özel Shulker Kutusu</h4><p>Özel renkli ve isimli taşınabilir kasa.</p><span class="price">20 TL</span></div>
+                </div>
+            </div>
+
+            <div id="crate-products" class="products-container hidden">
+                <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
+                <h3 class="subcategory-title">Kasa Anahtarları</h3>
+                <div class="products-grid">
+                    <div class="product-card"><h4>1x Oyuncu Kasası</h4><p>Temel ödüller veren kasa anahtarı.</p><span class="price">5 TL</span></div>
+                    <div class="product-card"><h4>5x Oyuncu Kasası</h4><p>Toplu alımlarda indirimli temel kasa.</p><span class="price">20 TL</span></div>
+                    <div class="product-card"><h4>1x Kozmetik Kasası</h4><p>Sadece partikül ve pelerin veren kasa.</p><span class="price">15 TL</span></div>
+                    <div class="product-card"><h4>1x Nadir Kasa Anahtarı</h4><p>Güzel oyun içi eşyalar barındırır.</p><span class="price">25 TL</span></div>
+                    <div class="product-card"><h4>3x Nadir Kasa Anahtarı</h4><p>Şansını katlamak isteyenler için 3'lü paket.</p><span class="price">60 TL</span></div>
+                    <div class="product-card"><h4>1x Destansı Kasa Anahtarı</h4><p>Spawner ve VIP çıkma şansı olan yüksek kasa.</p><span class="price">50 TL</span></div>
+                    <div class="product-card"><h4>1x Efsanevi Kasa Anahtarı</h4><p>Sunucunun en değerli eşyalarını barındırır.</p><span class="price">100 TL</span></div>
+                    <div class="product-card"><h4>3x Efsanevi Kasa Anahtarı</h4><p>En büyük ödülleri garantilemeye yaklaşın.</p><span class="price">250 TL</span></div>
+                    <div class="product-card"><h4>Haftalık Etkinlik Kasası</h4><p>Sadece hafta sonları açılabilen özel kasa.</p><span class="price">35 TL</span></div>
+                    <div class="product-card"><h4>Gizemli Kutu</h4><p>İçinden ne çıkacağı tamamen şansınıza kalmış!</p><span class="price">15 TL</span></div>
+                </div>
+            </div>
+
         </section>
     </div>
 
@@ -150,6 +203,7 @@
             if (page === 'store') {
                 homeSection.classList.add('hidden');
                 storeSection.classList.remove('hidden');
+                closeCategory(); // Mağazaya ilk girildiğinde ana kategoriler gelsin
                 window.scrollTo(0, 0);
             } else if (page === 'home') {
                 storeSection.classList.add('hidden');
@@ -166,6 +220,33 @@
                     toast.classList.remove('show');
                 }, 2000);
             });
+        }
+
+        // Kategori Açma Fonksiyonu
+        function openCategory(containerId) {
+            // Ana gridi gizle
+            document.getElementById('categories-main-grid').classList.add('hidden');
+            
+            // Tüm ürün listelerini önce bir gizle (güvenlik için)
+            var containers = document.querySelectorAll('.products-container');
+            containers.forEach(function(el) {
+                el.classList.add('hidden');
+            });
+
+            // Tıklanan kategoriyi göster
+            document.getElementById(containerId).classList.remove('hidden');
+        }
+
+        // Kategorilere Geri Dönme Fonksiyonu
+        function closeCategory() {
+            // Tüm ürün listelerini gizle
+            var containers = document.querySelectorAll('.products-container');
+            containers.forEach(function(el) {
+                el.classList.add('hidden');
+            });
+
+            // Ana gridi tekrar göster
+            document.getElementById('categories-main-grid').classList.remove('hidden');
         }
     </script>
 </body>
