@@ -225,4 +225,329 @@
         }
 
         .card p {
-            color: var
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ================= MAĞAZA MODÜLÜ ================= */
+        .store-hero {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 3rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            background: radial-gradient(circle at left, rgba(14, 165, 233, 0.15) 0%, transparent 60%);
+            border-radius: 2rem;
+        }
+
+        .store-hero-content {
+            max-width: 600px;
+        }
+
+        .store-tag {
+            color: #f43f5e;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.1rem;
+        }
+
+        .store-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 0.5rem 0;
+        }
+
+        .store-hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .store-hero-img img {
+            width: 280px;
+            height: auto;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .categories-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 6rem;
+        }
+
+        .categories-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background-color: #111827;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            border: 1px solid #1f2937;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .category-img-box {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            background-color: #1f2937;
+        }
+
+        .category-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-card:hover .category-img-box img {
+            transform: scale(1.05);
+        }
+
+        .category-footer {
+            padding: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0f172a;
+        }
+
+        .category-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #e2e8f0;
+        }
+
+        .category-btn {
+            background-color: #1e293b;
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .category-card:hover .category-btn {
+            background-color: var(--primary-color);
+        }
+
+        /* ================= FOOTER ================= */
+        .footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 1rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* ================= MOBIL UYUMLULUK ================= */
+        @media (max-width: 768px) {
+            .navbar, .footer, .store-hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .hero h1 { font-size: 2.5rem; }
+            .store-hero h1 { font-size: 2.2rem; }
+            .store-hero-img img { width: 200px; }
+            .categories-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo" onclick="navigateTo('home')">SUNUCU<span>ADI</span></div>
+        <div class="nav-links">
+            <a onclick="navigateTo('home')">Ana Sayfa</a>
+            <a onclick="navigateTo('home')">Özellikler</a>
+            <a class="btn-store" onclick="navigateTo('store')">Mağaza</a>
+        </div>
+    </nav>
+
+    <div id="home-page">
+        <header class="hero">
+            <h1>Maceraya <span>Hazır Mısın?</span></h1>
+            <p>Türkiye'nin en gelişmiş sistemlerine sahip, adaletin ve eğlencenin ön planda olduğu yeni nesil Minecraft sunucusu!</p>
+
+            <div class="ip-container">
+                <div class="ip-details">
+                    <span class="ip-title">Sunucu Adresi</span>
+                    <span id="server-ip" class="ip-text">play.sunucuadi.com</span>
+                </div>
+                <button onclick="copyIP()" class="btn-copy">Kopyala</button>
+            </div>
+            <span id="copy-toast" class="toast">IP Adresi Kopyalandı!</span>
+        </header>
+
+        <section id="ozellikler" class="features-section">
+            <h2>Neden Bizim Sunucumuz?</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Yüksek Performans</h3>
+                    <p>Özel optimize edilmiş işlemcilerimiz sayesinde 20 TPS sabit performansla lagsız bir oyun deneyimi sunuyoruz.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚔️</div>
+                    <h3>Özel Sistemler</h3>
+                    <p>Başka yerde görmediğiniz özel zindanlar, görevler ve tamamen dengelenmiş bir ekonomi sistemi sizi bekliyor.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Adil Yönetim</h3>
+                    <p>Hile korumalarımız ve 7/24 aktif rehber kadromuzla tüm oyuncular için adil bir ortam sağlıyoruz.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="store-page" class="hidden">
+        <div class="store-hero">
+            <div class="store-hero-content">
+                <span class="store-tag">MAĞAZA</span>
+                <h1>Sunucu Mağazası</h1>
+                <p>Resmi mağazamıza hoş geldiniz. Bu bölüm oyuncu deneyiminizi en üst seviyeye taşımak için hazırlanmıştır. Kategori altından oyun modunu seçerek alışverişe başlayabilirsiniz.</p>
+            </div>
+            <div class="store-hero-img">
+                <img src="https://images.unsplash.com/photo-1607988795691-3d0147b43231?auto=format&fit=crop&w=500&q=80" alt="Minecraft Store">
+            </div>
+        </div>
+
+        <section class="categories-section">
+            <h2 class="categories-title">Kategoriler</h2>
+            <div class="categories-grid">
+                
+                <div class="category-card">
+                    <div class="category-img-box">
+                        <img src="https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=400&q=80" alt="Kategori">
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">Kategori İsmi 1</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img-box">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80" alt="Kategori">
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">Kategori İsmi 2</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img-box">
+                        <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=400&q=80" alt="Kategori">
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">Kategori İsmi 3</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img-box">
+                        <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&w=400&q=80" alt="Kategori">
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">Kategori İsmi 4</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img-box">
+                        <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=400&q=80" alt="Kategori">
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">Kategori İsmi 5</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-img-box">
+                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=400&q=80" alt="Kategori">
+                    </div>
+                    <div class="category-footer">
+                        <span class="category-name">Kategori İsmi 6</span>
+                        <button class="category-btn">&gt;</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div>&copy; 2026 SunucuAdi. Tüm hakları saklıdır.</div>
+        <div class="footer-links">
+            <a href="#">Discord</a>
+            <a href="#">Kullanım Şartları</a>
+        </div>
+    </footer>
+
+    <script>
+        function navigateTo(page) {
+            var homeSection = document.getElementById('home-page');
+            var storeSection = document.getElementById('store-page');
+
+            if (page === 'store') {
+                homeSection.classList.add('hidden');
+                storeSection.classList.remove('hidden');
+                window.scrollTo(0, 0);
+            } else if (page === 'home') {
+                storeSection.classList.add('hidden');
+                homeSection.classList.remove('hidden');
+            }
+        }
+
+        function copyIP() {
+            var ipText = document.getElementById('server-ip').innerText;
+            navigator.clipboard.writeText(ipText).then(function() {
+                var toast = document.getElementById('copy-toast');
+                toast.classList.add('show');
+                setTimeout(function() {
+                    toast.classList.remove('show');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
