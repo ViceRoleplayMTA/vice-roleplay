@@ -14,8 +14,34 @@
             <a onclick="navigateTo('home')">Ana Sayfa</a>
             <a onclick="navigateTo('home')">Özellikler</a>
             <a class="btn-store" onclick="navigateTo('store')">Mağaza</a>
+            
+            <div class="cart-container-nav" onclick="toggleCartMenu()">
+                <span class="cart-icon-nav">🛒</span>
+                <span id="cart-count" class="cart-badge">0</span>
+            </div>
         </div>
     </nav>
+
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3>Alışveriş Sepetiniz</h3>
+            <button class="btn-close-cart" onclick="toggleCartMenu()">✕</button>
+        </div>
+        
+        <div id="cart-items-list" class="cart-items-list">
+            <p class="empty-cart-msg">Sepetiniz şu anda boş.</p>
+        </div>
+
+        <div class="cart-drawer-footer">
+            <div class="cart-total">
+                <span>Toplam Tutar:</span>
+                <span id="cart-total-price">0 TL</span>
+            </div>
+            <button class="btn-checkout" onclick="checkout()">Alışverişi Tamamla</button>
+        </div>
+    </div>
+    <div id="cart-overlay" class="cart-overlay" onclick="toggleCartMenu()"></div>
+
 
     <div id="home-page">
         <header class="hero">
@@ -116,67 +142,40 @@
             <div id="vip-products" class="products-container hidden">
                 <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
                 <div class="products-grid">
-                    <div class="product-card"><div class="prod-icon">👑</div><h4>VIP Üyelik</h4><p>1 Aylık temel ayrıcalıklar.</p><span class="price">50 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('VIP Üyelik')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">💎</div><h4>VIP+ Üyelik</h4><p>Daha fazla yetki ve özel kitler.</p><span class="price">90 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('VIP+ Üyelik')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔮</div><h4>MVIP Üyelik</h4><p>Sunucuda uçma ve yazı renkleri.</p><span class="price">150 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('MVIP Üyelik')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">✨</div><h4>MVIP+ Üyelik</h4><p>En popüler rütbe, limitsiz arsa.</p><span class="price">220 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('MVIP+ Üyelik')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔥</div><h4>Sınırsız VIP</h4><p>Süre sınırı olmadan ömür boyu.</p><span class="price">400 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Sınırsız VIP')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🌟</div><h4>Sınırsız MVIP+</h4><p>Ömür boyu en üst düzey yetki.</p><span class="price">750 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Sınırsız MVIP+')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🏷️</div><h4>Özel Tag Satın Al</h4><p>İsminin başına dilediğini yaz.</p><span class="price">40 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Özel Tag')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">💬</div><h4>Giriş Mesajı</h4><p>Oyuna girerken ekranda yazı çıksın.</p><span class="price">30 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Giriş Mesajı')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🏡</div><h4>+5 Arsa Hakkı</h4><p>Mevcut sınırına ek arsa hakkı.</p><span class="price">25 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('+5 Arsa Hakkı')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🎨</div><h4>Renk Değiştirme</h4><p>Tab ve sohbet ismi rengini ayarla.</p><span class="price">20 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Renk Değiştirme')">Satın Al</button></div></div>
+                    <div class="product-card"><div class="prod-icon">👑</div><h4>VIP Üyelik</h4><p>1 Aylık temel ayrıcalıklar.</p><span class="price">50 TL</span><div class="buy-action"><input type="number" id="qty-vip-1" value="1" min="1"><button onclick="addToCart('VIP Üyelik', 50, 'qty-vip-1')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><div class="prod-icon">💎</div><h4>VIP+ Üyelik</h4><p>Daha fazla yetki ve özel kitler.</p><span class="price">90 TL</span><div class="buy-action"><input type="number" id="qty-vip-2" value="1" min="1"><button onclick="addToCart('VIP+ Üyelik', 90, 'qty-vip-2')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><div class="prod-icon">🔮</div><h4>MVIP Üyelik</h4><p>Sunucuda uçma ve yazı renkleri.</p><span class="price">150 TL</span><div class="buy-action"><input type="number" id="qty-vip-3" value="1" min="1"><button onclick="addToCart('MVIP Üyelik', 150, 'qty-vip-3')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><div class="prod-icon">✨</div><h4>MVIP+ Üyelik</h4><p>En popüler rütbe, limitsiz arsa.</p><span class="price">220 TL</span><div class="buy-action"><input type="number" id="qty-vip-4" value="1" min="1"><button onclick="addToCart('MVIP+ Üyelik', 220, 'qty-vip-4')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><div class="prod-icon">🔥</div><h4>Sınırsız VIP</h4><p>Süre sınırı olmadan ömür boyu.</p><span class="price">400 TL</span><div class="buy-action"><input type="number" id="qty-vip-5" value="1" min="1"><button onclick="addToCart('Sınırsız VIP', 400, 'qty-vip-5')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><div class="prod-icon">🌟</div><h4>Sınırsız MVIP+</h4><p>Ömür boyu en üst düzey yetki.</p><span class="price">750 TL</span><div class="buy-action"><input type="number" id="qty-vip-6" value="1" min="1"><button onclick="addToCart('Sınırsız MVIP+', 750, 'qty-vip-6')">Sepete Ekle</button></div></div>
                 </div>
             </div>
 
             <div id="tekblok-products" class="products-container hidden">
                 <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
                 <div class="products-grid">
-                    <div class="product-card"><div class="prod-icon">⚙️</div><h4>Demir Spawner</h4><p>Otomatik demir üreten başlangıç sp.</p><span class="price">30 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Demir Spawner')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🟡</div><h4>Altın Spawner</h4><p>Ekonominizi hızlandıracak altın sp.</p><span class="price">45 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Altın Spawner')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔷</div><h4>Elmas Spawner</h4><p>Gelişmiş adalar için yüksek kazanç.</p><span class="price">75 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Elmas Spawner')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🖤</div><h4>Netherite Spawner</h4><p>En üst düzey maden üretici.</p><span class="price">120 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Netherite Spawner')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">📦</div><h4>Oto-Satış Sandığı</h4><p>İçine düşen her şeyi otomatik satar.</p><span class="price">60 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Oto-Satış Sandığı')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">⚡</div><h4>Ada Booster (1st)</h4><p>1 saat boyunca ada puanları x2.</p><span class="price">15 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Ada Booster')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🤖</div><h4>Madenci Minyonu</h4><p>Sizin yerinize maden kazan robot.</p><span class="price">50 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Madenci Minyonu')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🌾</div><h4>Çiftçi Minyonu</h4><p>Ekinleri otomatik toplar ve depolar.</p><span class="price">50 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Çiftçi Minyonu')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🧪</div><h4>64x XP Şişesi</h4><p>Hızlıca büyü basmanız için XP paketi.</p><span class="price">10 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('64x XP Şişesi')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🧽</div><h4>Sünger Paketi (16)</h4><p>Adadaki suları kolayca temizleyin.</p><span class="price">15 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Sünger Paketi')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🕊️</div><h4>Uçuş Kağıdı (3G)</h4><p>Adanızda 3 gün boyunca uçun.</p><span class="price">20 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Uçuş Kağıdı')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🗺️</div><h4>Ada Genişletme</h4><p>Adanızın maksimum boyutunu büyütür.</p><span class="price">40 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Ada Genişletme')">Satın Al</button></div></div>
+                    <div class="product-card"><div class="prod-icon">⚙️</div><h4>Demir Spawner</h4><p>Otomatik demir üreten başlangıç sp.</p><span class="price">30 TL</span><div class="buy-action"><input type="number" id="qty-tb-1" value="1" min="1"><button onclick="addToCart('Demir Spawner', 30, 'qty-tb-1')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><div class="prod-icon">🟡</div><h4>Altın Spawner</h4><p>Ekonominizi hızlandıracak altın sp.</p><span class="price">45 TL</span><div class="buy-action"><input type="number" id="qty-tb-2" value="1" min="1"><button onclick="addToCart('Altın Spawner', 45, 'qty-tb-2')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><div class="prod-icon">🔷</div><h4>Elmas Spawner</h4><p>Gelişmiş adalar için yüksek kazanç.</p><span class="price">75 TL</span><div class="buy-action"><input type="number" id="qty-tb-3" value="1" min="1"><button onclick="addToCart('Elmas Spawner', 75, 'qty-tb-3')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><div class="prod-icon">📦</div><h4>Oto-Satış Sandığı</h4><p>İçine düşen her şeyi otomatik satar.</p><span class="price">60 TL</span><div class="buy-action"><input type="number" id="qty-tb-4" value="1" min="1"><button onclick="addToCart('Oto-Satış Sandığı', 60, 'qty-tb-4')">Sepete Ekle</button></div></div>
                 </div>
             </div>
 
             <div id="survival-products" class="products-container hidden">
                 <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
                 <div class="products-grid">
-                    <div class="product-card"><div class="prod-icon">❤️</div><h4>+1 Kalp Konteyneri</h4><p>Kalıcı olarak can sınırını 1 artırır.</p><span class="price">20 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('+1 Kalp')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">💖</div><h4>+5 Kalp Paketi</h4><p>Savaşlarda büyük can avantajı sağlar.</p><span class="price">80 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('+5 Kalp')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🚨</div><h4>Canlandırma Taşı</h4><p>Elenen bir arkadaşınızı geri getirin.</p><span class="price">50 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Canlandırma Taşı')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">📚</div><h4>Verimlilik VI</h4><p>Özel koruma/kazma büyü kitabı.</p><span class="price">35 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Verimlilik VI')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🗡️</div><h4>Keskinlik VI</h4><p>Savaşlarda üstünlük kuracak efsane.</p><span class="price">40 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Keskinlik VI')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🕸️</div><h4>İpeksi Dokunuş II</h4><p>Özel blokları hasarsız kırıp alır.</p><span class="price">30 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('İpeksi Dokunuş II')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🛡️</div><h4>Netherite Seti</h4><p>Full büyülü, savaşa hazır koruma 4 zırh.</p><span class="price">45 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Netherite Seti')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🧰</div><h4>Ender Sandığı +1</h4><p>Ender sandığına +1 sayfa ekler.</p><span class="price">25 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Ender Sandığı +1')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🌀</div><h4>RTP Bileti</h4><p>Haritada rastgele güvenli yere ışınlar.</p><span class="price">5 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('RTP Bileti')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🧱</div><h4>Claim Bloğu (500)</h4><p>Evinizi korumak için ekstra alan.</p><span class="price">15 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Claim Bloğu')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🎒</div><h4>Özel Shulker</h4><p>Özel renkli taşınabilir kasa.</p><span class="price">20 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Özel Shulker')">Satın Al</button></div></div>
+                    <div class="product-card"><div class="prod-icon">❤️</div><h4>+1 Kalp Konteyneri</h4><p>Kalıcı olarak can sınırını 1 artırır.</p><span class="price">20 TL</span><div class="buy-action"><input type="number" id="qty-sv-1" value="1" min="1"><button onclick="addToCart('+1 Kalp Konteyneri', 20, 'qty-sv-1')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><div class="prod-icon">💖</div><h4>+5 Kalp Paketi</h4><p>Savaşlarda büyük can avantajı sağlar.</p><span class="price">80 TL</span><div class="buy-action"><input type="number" id="qty-sv-2" value="1" min="1"><button onclick="addToCart('+5 Kalp Paketi', 80, 'qty-sv-2')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><div class="prod-icon">🛡️</div><h4>Netherite Seti</h4><p>Full büyülü koruma 4 zırh.</p><span class="price">45 TL</span><div class="buy-action"><input type="number" id="qty-sv-3" value="1" min="1"><button onclick="addToCart('Netherite Seti', 45, 'qty-sv-3')">Sepete Ekle</button></div></div>
                 </div>
             </div>
 
             <div id="crate-products" class="products-container hidden">
                 <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
                 <div class="products-grid">
-                    <div class="product-card"><div class="prod-icon">🔑</div><h4>1x Oyuncu Kasası</h4><p>Temel ödüller veren kasa anahtarı.</p><span class="price">5 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('1x Oyuncu Kasası')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🗝️</div><h4>5x Oyuncu Kasası</h4><p>Toplu alımlarda indirimli temel kasa.</p><span class="price">20 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('5x Oyuncu Kasası')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🎭</div><h4>1x Kozmetik Kasa</h4><p>Partikül ve pelerin veren kasa.</p><span class="price">15 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('1x Kozmetik Kasa')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔓</div><h4>1x Nadir Kasa</h4><p>Güzel oyun içi eşyalar barındırır.</p><span class="price">25 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('1x Nadir Kasa')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔐</div><h4>3x Nadir Kasa</h4><p>Şansını katlamak isteyenler için paket.</p><span class="price">60 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('3x Nadir Kasa')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔮</div><h4>1x Destansı Kasa</h4><p>Spawner ve VIP çıkma şansı olan kasa.</p><span class="price">50 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('1x Destansı Kasa')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔱</div><h4>1x Efsanevi Kasa</h4><p>Sunucunun en değerli eşyalarını içerir.</p><span class="price">100 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('1x Efsanevi Kasa')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔺</div><h4>3x Efsanevi Kasa</h4><p>En büyük ödülleri garantileyin.</p><span class="price">250 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('3x Efsanevi Kasa')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🎫</div><h4>Etkinlik Kasası</h4><p>Sadece hafta sonları açılabilen kasa.</p><span class="price">35 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Etkinlik Kasası')">Satın Al</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🎁</div><h4>Gizemli Kutu</h4><p>İçinden ne çıkacağı tamamen şans!</p><span class="price">15 TL</span><div class="buy-action"><input type="number" value="1" min="1"><button onclick="buyItem('Gizemli Kutu')">Satın Al</button></div></div>
+                    <div class="product-card"><div class="prod-icon">🔑</div><h4>1x Oyuncu Kasası</h4><p>Temel ödüller veren kasa anahtarı.</p><span class="price">5 TL</span><div class="buy-action"><input type="number" id="qty-cr-1" value="1" min="1"><button onclick="addToCart('1x Oyuncu Kasası', 5, 'qty-cr-1')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><div class="prod-icon">🔓</div><h4>1x Nadir Kasa</h4><p>Güzel oyun içi eşyalar barındırır.</p><span class="price">25 TL</span><div class="buy-action"><input type="number" id="qty-cr-2" value="1" min="1"><button onclick="addToCart('1x Nadir Kasa', 25, 'qty-cr-2')">Sepete Ekle</button></div></div>
+                    <div class="product-card"><div class="prod-icon">🔱</div><h4>1x Efsanevi Kasa</h4><p>Sunucunun en değerli eşyalarını içerir.</p><span class="price">100 TL</span><div class="buy-action"><input type="number" id="qty-cr-3" value="1" min="1"><button onclick="addToCart('1x Efsanevi Kasa', 100, 'qty-cr-3')">Sepete Ekle</button></div></div>
                 </div>
             </div>
 
@@ -192,6 +191,9 @@
     </footer>
 
     <script>
+        // SEPET VERİLERİ DETAYI
+        var cart = [];
+
         function navigateTo(page) {
             var homeSection = document.getElementById('home-page');
             var storeSection = document.getElementById('store-page');
@@ -218,43 +220,102 @@
             });
         }
 
-        // Kategori Açma Fonksiyonu
         function openCategory(containerId) {
-            // Ana gridi gizle
             document.getElementById('categories-main-grid').classList.add('hidden');
-            
-            // Başlığı değiştir
             document.getElementById('store-section-title').innerText = "Ürünler";
 
-            // Tüm ürün listelerini önce gizle
             var containers = document.querySelectorAll('.products-container');
-            containers.forEach(function(el) {
-                el.classList.add('hidden');
-            });
+            containers.forEach(function(el) { el.classList.add('hidden'); });
 
-            // Seçilen kategoriyi göster
             document.getElementById(containerId).classList.remove('hidden');
             window.scrollTo(0, 300);
         }
 
-        // Kategorilere Geri Dönme Fonksiyonu
         function closeCategory() {
-            // Tüm ürün listelerini gizle
             var containers = document.querySelectorAll('.products-container');
-            containers.forEach(function(el) {
-                el.classList.add('hidden');
-            });
-
-            // Başlığı eski haline getir
+            containers.forEach(function(el) { el.classList.add('hidden'); });
             document.getElementById('store-section-title').innerText = "Kategoriler";
-
-            // Ana kategorileri tekrar göster
             document.getElementById('categories-main-grid').classList.remove('hidden');
         }
 
-        // Satın Alma Tetikleyicisi
-        function buyItem(itemName) {
-            alert(itemName + " başarıyla sepete eklendi! Ödeme sayfasına yönlendiriliyorsunuz...");
+        /* SEPET FONKSİYONLARI */
+        function toggleCartMenu() {
+            var drawer = document.getElementById('cart-drawer');
+            var overlay = document.getElementById('cart-overlay');
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+
+        function addToCart(name, price, inputId) {
+            var quantity = parseInt(document.getElementById(inputId).value);
+            if (quantity < 1 || isNaN(quantity)) quantity = 1;
+
+            // Eğer ürün zaten sepette varsa adetini arttır
+            var existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({ name: name, price: price, quantity: quantity });
+            }
+
+            // Girdi miktarını sıfırla/1 yap
+            document.getElementById(inputId).value = 1;
+
+            updateCartUI();
+        }
+
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            var cartList = document.getElementById('cart-items-list');
+            var cartCount = document.getElementById('cart-count');
+            var cartTotal = document.getElementById('cart-total-price');
+
+            // Toplam Ürün Sayacı Güncelleme
+            var totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.innerText = totalItems;
+
+            if (cart.length === 0) {
+                cartList.innerHTML = '<p class="empty-cart-msg">Sepetiniz şu anda boş.</p>';
+                cartTotal.innerText = "0 TL";
+                return;
+            }
+
+            // Sepet Listesini Yeniden Oluşturma
+            cartList.innerHTML = "";
+            var totalCash = 0;
+
+            cart.forEach(function(item) {
+                var itemTotal = item.price * item.quantity;
+                totalCash += itemTotal;
+
+                var itemRow = document.createElement('div');
+                itemRow.className = 'cart-item-row';
+                itemRow.innerHTML = `
+                    <div class="cart-item-info">
+                        <span class="cart-item-name">${item.name}</span>
+                        <span class="cart-item-details">${item.quantity} Adet x ${item.price} TL</span>
+                    </div>
+                    <div class="cart-item-right">
+                        <span class="cart-item-price">${itemTotal} TL</span>
+                        <button class="btn-remove-item" onclick="removeFromCart('${item.name}')">🗑️</button>
+                    </div>
+                `;
+                cartList.appendChild(itemRow);
+            });
+
+            cartTotal.innerText = totalCash + " TL";
+        }
+
+        function checkout() {
+            if(cart.length === 0) {
+                alert("Sepetiniz boş! Ödeme adımına geçebilmek için ürün ekleyin.");
+                return;
+            }
+            alert("Ödeme entegrasyon sayfasına aktarılıyorsunuz... Toplam Tutar: " + document.getElementById('cart-total-price').innerText);
         }
     </script>
 </body>
