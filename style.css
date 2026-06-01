@@ -1,77 +1,266 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunucu Adı | Minecraft Sunucusu</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Genel Ayarlar ve Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
-    <nav class="navbar">
-        <div class="logo">SUNUCU<span>ADI</span></div>
-        <div class="nav-links">
-            <a href="#">Ana Sayfa</a>
-            <a href="#ozellikler">Özellikler</a>
-            <a href="#hakkimizda">Hakkımızda</a>
-            <a href="#" class="btn-store">Mağaza</a>
-        </div>
-    </nav>
+:root {
+    --bg-color: #111827;       /* Arka plan koyu gri */
+    --bg-darker: #030712;      /* Daha koyu gri (Özellikler alanı) */
+    --card-bg: #1f2937;        /* Kartların arka planı */
+    --primary-color: #22c55e;  /* Minecraft Yeşili */
+    --primary-hover: #16a34a;  /* Buton hover yeşili */
+    --text-main: #ffffff;      /* Beyaz yazı */
+    --text-muted: #9ca3af;     /* Soluk gri yazı */
+}
 
-    <header class="hero">
-        <h1>Maceraya <span>Hazır Mısın?</span></h1>
-        <p>Türkiye'nin en gelişmiş sistemlerine sahip, adaletin ve eğlencenin ön planda olduğu yeni nesil Minecraft sunucusu!</p>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        <div class="ip-container">
-            <div class="ip-details">
-                <span class="ip-title">Sunucu Adresi</span>
-                <span id="server-ip" class="ip-text">play.sunucuadi.com</span>
-            </div>
-            <button onclick="copyIP()" class="btn-copy">Kopyala</button>
-        </div>
-        <span id="copy-toast" class="toast">IP Adresi Kopyalandı!</span>
-    </header>
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+}
 
-    <section id="ozellikler" class="features-section">
-        <h2>Neden Bizim Sunucumuz?</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>Yüksek Performans</h3>
-                <p>Özel optimize edilmiş işlemcilerimiz sayesinde 20 TPS sabit performansla lagsız bir oyun deneyimi sunuyoruz.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">⚔️</div>
-                <h3>Özel Sistemler</h3>
-                <p>Başka yerde görmediğiniz özel zindanlar, görevler ve tamamen dengelenmiş bir ekonomi sistemi sizi bekliyor.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🛡️</div>
-                <h3>Adil Yönetim</h3>
-                <p>Hile korumalarımız ve 7/24 aktif rehber kadromuzla tüm oyuncular için adil bir ortam sağlıyoruz.</p>
-            </div>
-        </div>
-    </section>
+/* Navigasyon Bar */
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    <footer class="footer">
-        <div>&copy; 2026 SunucuAdi. Tüm hakları saklıdır.</div>
-        <div class="footer-links">
-            <a href="#">Discord</a>
-            <a href="#">Kullanım Şartları</a>
-        </div>
-    </footer>
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--primary-color);
+}
 
-    <script>
-        function copyIP() {
-            const ipText = document.getElementById('server-ip').innerText;
-            navigator.clipboard.writeText(ipText).then(() => {
-                const toast = document.getElementById('copy-toast');
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2000);
-            });
-        }
-    </script>
-</body>
-</html>
+.logo span {
+    color: var(--text-main);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.btn-store {
+    background-color: var(--primary-hover);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 10px 15px -3px rgba(22, 163, 74, 0.3);
+    transition: background-color 0.3s;
+}
+
+.btn-store:hover {
+    background-color: var(--primary-color);
+}
+
+/* Hero (Giriş) Bölümü */
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero h1 span {
+    background: linear-gradient(to right, #4ade80, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    max-width: 42rem;
+    margin-bottom: 2rem;
+}
+
+/* IP Kopyalama Kutusu */
+.ip-container {
+    background-color: rgba(31, 41, 55, 0.8);
+    border: 1px solid rgba(55, 65, 81, 0.5);
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 28rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.ip-details {
+    text-align: left;
+}
+
+.ip-title {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
+}
+
+.ip-text {
+    font-family: monospace;
+    font-size: 1.125rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.btn-copy {
+    background-color: var(--primary-hover);
+    color: white;
+    border: none;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-copy:hover {
+    background-color: var(--primary-color);
+}
+
+.btn-copy:active {
+    transform: scale(0.95);
+}
+
+.toast {
+    font-size: 0.875rem;
+    color: var(--primary-color);
+    margin-top: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+/* Özellikler Bölümü */
+.features-section {
+    background-color: var(--bg-darker);
+    padding: 5rem 1.5rem;
+}
+
+.features-section h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--bg-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #1f2937;
+    transition: border-color 0.3s;
+}
+
+.card:hover {
+    border-color: rgba(34, 197, 94, 0.5);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s;
+}
+
+.card:hover .card-icon {
+    transform: scale(1.1);
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* Footer (Alt Bilgi) */
+.footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 1rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--text-main);
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .navbar, .footer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .ip-container {
+        flex-direction: column;
+    }
+    .btn-copy {
+        width: 100%;
+    }
+}
