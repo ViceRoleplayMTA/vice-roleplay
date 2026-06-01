@@ -10,13 +10,16 @@
 
     <nav class="navbar">
         <div class="logo" onclick="navigateTo('home')">SUNUCU<span>ADI</span></div>
-        <div class="nav-links">
-            <a onclick="navigateTo('home')">Ana Sayfa</a>
-            <a onclick="navigateTo('home')">Özellikler</a>
-            <a class="btn-store" onclick="navigateTo('store')">Mağaza</a>
+        
+        <div class="nav-right-container">
+            <div class="nav-links">
+                <a onclick="navigateTo('home')">Ana Sayfa</a>
+                <a onclick="navigateTo('home')">Özellikler</a>
+                <a class="btn-store" onclick="navigateTo('store')">Mağaza</a>
+            </div>
             
-            <div class="cart-container-nav" onclick="toggleCartMenu()">
-                <span class="cart-icon-nav">🛒</span>
+            <div class="cart-nav-box" onclick="toggleCartMenu()">
+                <span class="cart-emoji">🛒</span>
                 <span id="cart-count" class="cart-badge">0</span>
             </div>
         </div>
@@ -41,7 +44,6 @@
         </div>
     </div>
     <div id="cart-overlay" class="cart-overlay" onclick="toggleCartMenu()"></div>
-
 
     <div id="home-page">
         <header class="hero">
@@ -96,7 +98,6 @@
             <h2 class="categories-title" id="store-section-title">Kategoriler</h2>
             
             <div class="categories-grid" id="categories-main-grid">
-                
                 <div class="category-card" onclick="openCategory('vip-products')">
                     <div class="category-img-box">
                         <img src="https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=400&q=80">
@@ -136,7 +137,6 @@
                         <button class="category-btn">&gt;</button>
                     </div>
                 </div>
-
             </div>
 
             <div id="vip-products" class="products-container hidden">
@@ -146,8 +146,6 @@
                     <div class="product-card"><div class="prod-icon">💎</div><h4>VIP+ Üyelik</h4><p>Daha fazla yetki ve özel kitler.</p><span class="price">90 TL</span><div class="buy-action"><input type="number" id="qty-vip-2" value="1" min="1"><button onclick="addToCart('VIP+ Üyelik', 90, 'qty-vip-2')">Sepete Ekle</button></div></div>
                     <div class="product-card"><div class="prod-icon">🔮</div><h4>MVIP Üyelik</h4><p>Sunucuda uçma ve yazı renkleri.</p><span class="price">150 TL</span><div class="buy-action"><input type="number" id="qty-vip-3" value="1" min="1"><button onclick="addToCart('MVIP Üyelik', 150, 'qty-vip-3')">Sepete Ekle</button></div></div>
                     <div class="product-card"><div class="prod-icon">✨</div><h4>MVIP+ Üyelik</h4><p>En popüler rütbe, limitsiz arsa.</p><span class="price">220 TL</span><div class="buy-action"><input type="number" id="qty-vip-4" value="1" min="1"><button onclick="addToCart('MVIP+ Üyelik', 220, 'qty-vip-4')">Sepete Ekle</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔥</div><h4>Sınırsız VIP</h4><p>Süre sınırı olmadan ömür boyu.</p><span class="price">400 TL</span><div class="buy-action"><input type="number" id="qty-vip-5" value="1" min="1"><button onclick="addToCart('Sınırsız VIP', 400, 'qty-vip-5')">Sepete Ekle</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🌟</div><h4>Sınırsız MVIP+</h4><p>Ömür boyu en üst düzey yetki.</p><span class="price">750 TL</span><div class="buy-action"><input type="number" id="qty-vip-6" value="1" min="1"><button onclick="addToCart('Sınırsız MVIP+', 750, 'qty-vip-6')">Sepete Ekle</button></div></div>
                 </div>
             </div>
 
@@ -156,8 +154,6 @@
                 <div class="products-grid">
                     <div class="product-card"><div class="prod-icon">⚙️</div><h4>Demir Spawner</h4><p>Otomatik demir üreten başlangıç sp.</p><span class="price">30 TL</span><div class="buy-action"><input type="number" id="qty-tb-1" value="1" min="1"><button onclick="addToCart('Demir Spawner', 30, 'qty-tb-1')">Sepete Ekle</button></div></div>
                     <div class="product-card"><div class="prod-icon">🟡</div><h4>Altın Spawner</h4><p>Ekonominizi hızlandıracak altın sp.</p><span class="price">45 TL</span><div class="buy-action"><input type="number" id="qty-tb-2" value="1" min="1"><button onclick="addToCart('Altın Spawner', 45, 'qty-tb-2')">Sepete Ekle</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔷</div><h4>Elmas Spawner</h4><p>Gelişmiş adalar için yüksek kazanç.</p><span class="price">75 TL</span><div class="buy-action"><input type="number" id="qty-tb-3" value="1" min="1"><button onclick="addToCart('Elmas Spawner', 75, 'qty-tb-3')">Sepete Ekle</button></div></div>
-                    <div class="product-card"><div class="prod-icon">📦</div><h4>Oto-Satış Sandığı</h4><p>İçine düşen her şeyi otomatik satar.</p><span class="price">60 TL</span><div class="buy-action"><input type="number" id="qty-tb-4" value="1" min="1"><button onclick="addToCart('Oto-Satış Sandığı', 60, 'qty-tb-4')">Sepete Ekle</button></div></div>
                 </div>
             </div>
 
@@ -165,8 +161,6 @@
                 <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
                 <div class="products-grid">
                     <div class="product-card"><div class="prod-icon">❤️</div><h4>+1 Kalp Konteyneri</h4><p>Kalıcı olarak can sınırını 1 artırır.</p><span class="price">20 TL</span><div class="buy-action"><input type="number" id="qty-sv-1" value="1" min="1"><button onclick="addToCart('+1 Kalp Konteyneri', 20, 'qty-sv-1')">Sepete Ekle</button></div></div>
-                    <div class="product-card"><div class="prod-icon">💖</div><h4>+5 Kalp Paketi</h4><p>Savaşlarda büyük can avantajı sağlar.</p><span class="price">80 TL</span><div class="buy-action"><input type="number" id="qty-sv-2" value="1" min="1"><button onclick="addToCart('+5 Kalp Paketi', 80, 'qty-sv-2')">Sepete Ekle</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🛡️</div><h4>Netherite Seti</h4><p>Full büyülü koruma 4 zırh.</p><span class="price">45 TL</span><div class="buy-action"><input type="number" id="qty-sv-3" value="1" min="1"><button onclick="addToCart('Netherite Seti', 45, 'qty-sv-3')">Sepete Ekle</button></div></div>
                 </div>
             </div>
 
@@ -174,11 +168,8 @@
                 <button class="btn-back" onclick="closeCategory()">⬅ Kategorilere Geri Dön</button>
                 <div class="products-grid">
                     <div class="product-card"><div class="prod-icon">🔑</div><h4>1x Oyuncu Kasası</h4><p>Temel ödüller veren kasa anahtarı.</p><span class="price">5 TL</span><div class="buy-action"><input type="number" id="qty-cr-1" value="1" min="1"><button onclick="addToCart('1x Oyuncu Kasası', 5, 'qty-cr-1')">Sepete Ekle</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔓</div><h4>1x Nadir Kasa</h4><p>Güzel oyun içi eşyalar barındırır.</p><span class="price">25 TL</span><div class="buy-action"><input type="number" id="qty-cr-2" value="1" min="1"><button onclick="addToCart('1x Nadir Kasa', 25, 'qty-cr-2')">Sepete Ekle</button></div></div>
-                    <div class="product-card"><div class="prod-icon">🔱</div><h4>1x Efsanevi Kasa</h4><p>Sunucunun en değerli eşyalarını içerir.</p><span class="price">100 TL</span><div class="buy-action"><input type="number" id="qty-cr-3" value="1" min="1"><button onclick="addToCart('1x Efsanevi Kasa', 100, 'qty-cr-3')">Sepete Ekle</button></div></div>
                 </div>
             </div>
-
         </section>
     </div>
 
@@ -191,13 +182,11 @@
     </footer>
 
     <script>
-        // SEPET VERİLERİ DETAYI
         var cart = [];
 
         function navigateTo(page) {
             var homeSection = document.getElementById('home-page');
             var storeSection = document.getElementById('store-page');
-
             if (page === 'store') {
                 homeSection.classList.add('hidden');
                 storeSection.classList.remove('hidden');
@@ -214,19 +203,15 @@
             navigator.clipboard.writeText(ipText).then(function() {
                 var toast = document.getElementById('copy-toast');
                 toast.classList.add('show');
-                setTimeout(function() {
-                    toast.classList.remove('show');
-                }, 2000);
+                setTimeout(function() { toast.classList.remove('show'); }, 2000);
             });
         }
 
         function openCategory(containerId) {
             document.getElementById('categories-main-grid').classList.add('hidden');
             document.getElementById('store-section-title').innerText = "Ürünler";
-
             var containers = document.querySelectorAll('.products-container');
             containers.forEach(function(el) { el.classList.add('hidden'); });
-
             document.getElementById(containerId).classList.remove('hidden');
             window.scrollTo(0, 300);
         }
@@ -238,7 +223,6 @@
             document.getElementById('categories-main-grid').classList.remove('hidden');
         }
 
-        /* SEPET FONKSİYONLARI */
         function toggleCartMenu() {
             var drawer = document.getElementById('cart-drawer');
             var overlay = document.getElementById('cart-overlay');
@@ -250,18 +234,17 @@
             var quantity = parseInt(document.getElementById(inputId).value);
             if (quantity < 1 || isNaN(quantity)) quantity = 1;
 
-            // Eğer ürün zaten sepette varsa adetini arttır
             var existingItem = cart.find(item => item.name === name);
             if (existingItem) {
                 existingItem.quantity += quantity;
             } else {
                 cart.push({ name: name, price: price, quantity: quantity });
             }
-
-            // Girdi miktarını sıfırla/1 yap
             document.getElementById(inputId).value = 1;
-
             updateCartUI();
+            
+            // Kullanıcıya eklendiğini belli etmek için sepeti otomatik açalım
+            toggleCartMenu();
         }
 
         function removeFromCart(name) {
@@ -274,7 +257,6 @@
             var cartCount = document.getElementById('cart-count');
             var cartTotal = document.getElementById('cart-total-price');
 
-            // Toplam Ürün Sayacı Güncelleme
             var totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.innerText = totalItems;
 
@@ -284,7 +266,6 @@
                 return;
             }
 
-            // Sepet Listesini Yeniden Oluşturma
             cartList.innerHTML = "";
             var totalCash = 0;
 
@@ -312,10 +293,10 @@
 
         function checkout() {
             if(cart.length === 0) {
-                alert("Sepetiniz boş! Ödeme adımına geçebilmek için ürün ekleyin.");
+                alert("Sepetiniz boş!");
                 return;
             }
-            alert("Ödeme entegrasyon sayfasına aktarılıyorsunuz... Toplam Tutar: " + document.getElementById('cart-total-price').innerText);
+            alert("Ödeme sayfasına yönlendiriliyorsunuz... Toplam: " + document.getElementById('cart-total-price').innerText);
         }
     </script>
 </body>
