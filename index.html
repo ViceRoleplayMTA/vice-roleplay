@@ -4,169 +4,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunucu Adı | Minecraft Sunucusu</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ================= GENEL AYARLAR ================= */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
-    <nav class="navbar">
-        <div class="logo" onclick="showPage('home')" style="cursor: pointer;">SUNUCU<span>ADI</span></div>
-        <div class="nav-links">
-            <a href="#" onclick="showPage('home')">Ana Sayfa</a>
-            <a href="#ozellikler" onclick="showPage('home')">Özellikler</a>
-            <a href="#" class="btn-store" onclick="showPage('store')">Mağaza</a>
-        </div>
-    </nav>
-
-    <div id="home-page">
-        <header class="hero">
-            <h1>Maceraya <span>Hazır Mısın?</span></h1>
-            <p>Türkiye'nin en gelişmiş sistemlerine sahip, adaletin ve eğlencenin ön planda olduğu yeni nesil Minecraft sunucusu!</p>
-
-            <div class="ip-container">
-                <div class="ip-details">
-                    <span class="ip-title">Sunucu Adresi</span>
-                    <span id="server-ip" class="ip-text">play.sunucuadi.com</span>
-                </div>
-                <button onclick="copyIP()" class="btn-copy">Kopyala</button>
-            </div>
-            <span id="copy-toast" class="toast">IP Adresi Kopyalandı!</span>
-        </header>
-
-        <section id="ozellikler" class="features-section">
-            <h2>Neden Bizim Sunucumuz?</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Yüksek Performans</h3>
-                    <p>Özel optimize edilmiş işlemcilerimiz sayesinde 20 TPS sabit performansla lagsız bir oyun deneyimi sunuyoruz.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">⚔️</div>
-                    <h3>Özel Sistemler</h3>
-                    <p>Başka yerde görmediğiniz özel zindanlar, görevler ve tamamen dengelenmiş bir ekonomi sistemi sizi bekliyor.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🛡️</div>
-                    <h3>Adil Yönetim</h3>
-                    <p>Hile korumalarımız ve 7/24 aktif rehber kadromuzla tüm oyuncular için adil bir ortam sağlıyoruz.</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div id="store-page" class="hidden">
-        <div class="store-hero">
-            <div class="store-hero-content">
-                <span class="store-tag">MAĞAZA</span>
-                <h1>Sunucu Mağazası</h1>
-                <p>Resmi sunucu mağazasına hoş geldiniz. Bu, oyuncu deneyiminizi geliştirmeniz için yerinizdir. VIP, Item ve kasalar sunuyoruz.</p>
-            </div>
-            <div class="store-hero-img">
-                <img src="https://images.unsplash.com/photo-1607988795691-3d0147b43231?auto=format&fit=crop&w=500&q=80" alt="Minecraft Store">
-            </div>
-        </div>
-
-        <section class="categories-section">
-            <h2 class="categories-title">Kategoriler</h2>
-            <div class="categories-grid">
-                
-                <div class="category-card">
-                    <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=400&q=80" alt="Kategori 1">
-                    </div>
-                    <div class="category-footer">
-                        <span class="category-name">Kategori İsmi 1</span>
-                        <button class="category-btn">&gt;</button>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80" alt="Kategori 2">
-                    </div>
-                    <div class="category-footer">
-                        <span class="category-name">Kategori İsmi 2</span>
-                        <button class="category-btn">&gt;</button>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=400&q=80" alt="Kategori 3">
-                    </div>
-                    <div class="category-footer">
-                        <span class="category-name">Kategori İsmi 3</span>
-                        <button class="category-btn">&gt;</button>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?auto=format&fit=crop&w=400&q=80" alt="Kategori 4">
-                    </div>
-                    <div class="category-footer">
-                        <span class="category-name">Kategori İsmi 4</span>
-                        <button class="category-btn">&gt;</button>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=400&q=80" alt="Kategori 5">
-                    </div>
-                    <div class="category-footer">
-                        <span class="category-name">Kategori İsmi 5</span>
-                        <button class="category-btn">&gt;</button>
-                    </div>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-img-box">
-                        <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=400&q=80" alt="Kategori 6">
-                    </div>
-                    <div class="category-footer">
-                        <span class="category-name">Kategori İsmi 6</span>
-                        <button class="category-btn">&gt;</button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </div>
-
-    <footer class="footer">
-        <div>&copy; 2026 SunucuAdi. Tüm hakları saklıdır.</div>
-        <div class="footer-links">
-            <a href="#">Discord</a>
-            <a href="#">Kullanım Şartları</a>
-        </div>
-    </footer>
-
-    <script>
-        function showPage(pageId) {
-            const home = document.getElementById('home-page');
-            const store = document.getElementById('store-page');
-            
-            if (pageId === 'store') {
-                home.classList.add('hidden');
-                store.classList.remove('hidden');
-                window.scrollTo(0, 0);
-            } else {
-                home.classList.remove('hidden');
-                store.classList.add('hidden');
-            }
+        :root {
+            --bg-color: #0b0f19;       
+            --bg-darker: #05070f;      
+            --card-bg: #111827;        
+            --primary-color: #0ea5e9;  
+            --primary-hover: #0284c7;
+            --text-main: #ffffff;      
+            --text-muted: #9ca3af;     
         }
 
-        function copyIP() {
-            const ipText = document.getElementById('server-ip').innerText;
-            navigator.clipboard.writeText(ipText).then(() => {
-                const toast = document.getElementById('copy-toast');
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2000);
-            });
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    </script>
-</body>
-</html>
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ================= NAVIGASYON BAR ================= */
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            color: var(--primary-color);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-store {
+            background-color: var(--primary-hover);
+            color: white !important;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-store:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* ================= ANA SAYFA (HERO) ================= */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(to right, #38bdf8, #0369a1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            max-width: 42rem;
+            margin-bottom: 2rem;
+        }
+
+        /* IP Kopyalama Kutusu */
+        .ip-container {
+            background-color: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            padding: 1rem;
+            border-radius: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            max-width: 28rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .ip-details {
+            text-align: left;
+        }
+
+        .ip-title {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .ip-text {
+            font-family: monospace;
+            font-size: 1.125rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            display: block;
+        }
+
+        .btn-copy {
+            background-color: var(--primary-hover);
+            color: white;
+            border: none;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-copy:hover {
+            background-color: var(--primary-color);
+        }
+
+        .btn-copy:active {
+            transform: scale(0.95);
+        }
+
+        .toast {
+            font-size: 0.875rem;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        /* Özellikler Bölümü */
+        .features-section {
+            background-color: var(--bg-darker);
+            padding: 5rem 1.5rem;
+        }
+
+        .features-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid #1f2937;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var
