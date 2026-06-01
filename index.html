@@ -4,74 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunucu Adı | Minecraft Sunucusu</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Poppins', sans-serif; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-900 text-white selection:bg-green-500 selection:text-black">
+<body>
 
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="text-2xl font-extrabold tracking-wider text-green-500">SUNUCU<span class="text-white">ADI</span></div>
-        <div class="hidden md:flex space-x-6 font-medium">
-            <a href="#" class="hover:text-green-400 transition">Ana Sayfa</a>
-            <a href="#ozellikler" class="hover:text-green-400 transition">Özellikler</a>
-            <a href="#hakkimizda" class="hover:text-green-400 transition">Hakkımızda</a>
-            <a href="#" class="bg-green-600 hover:bg-green-500 px-4 py-2 rounded-lg font-semibold transition shadow-lg shadow-green-600/30">Mağaza</a>
+    <nav class="navbar">
+        <div class="logo">SUNUCU<span>ADI</span></div>
+        <div class="nav-links">
+            <a href="#">Ana Sayfa</a>
+            <a href="#ozellikler">Özellikler</a>
+            <a href="#hakkimizda">Hakkımızda</a>
+            <a href="#" class="btn-store">Mağaza</a>
         </div>
     </nav>
 
-    <header class="container mx-auto px-6 py-20 text-center flex flex-col items-center justify-center">
-        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
-            Maceraya <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">Hazır Mısın?</span>
-        </h1>
-        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mb-8">
-            Türkiye'nin en gelişmiş sistemlerine sahip, adaletin ve eğlencenin ön planda olduğu yeni nesil Minecraft sunucusu!
-        </p>
+    <header class="hero">
+        <h1>Maceraya <span>Hazır Mısın?</span></h1>
+        <p>Türkiye'nin en gelişmiş sistemlerine sahip, adaletin ve eğlencenin ön planda olduğu yeni nesil Minecraft sunucusu!</p>
 
-        <div class="bg-gray-800/80 p-4 rounded-2xl border border-gray-700/50 backdrop-blur flex flex-col sm:flex-row items-center gap-4 max-w-md w-full justify-between shadow-2xl">
-            <div class="flex flex-col text-left w-full sm:w-auto">
-                <span class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Sunucu Adresi</span>
-                <span id="server-ip" class="font-mono text-lg text-green-400 font-bold">play.sunucuadi.com</span>
+        <div class="ip-container">
+            <div class="ip-details">
+                <span class="ip-title">Sunucu Adresi</span>
+                <span id="server-ip" class="ip-text">play.sunucuadi.com</span>
             </div>
-            <button onclick="copyIP()" class="w-full sm:w-auto bg-green-600 hover:bg-green-500 text-white font-bold px-6 py-3 rounded-xl transition cursor-pointer active:scale-95 shadow-lg shadow-green-600/20">
-                Kopyala
-            </button>
+            <button onclick="copyIP()" class="btn-copy">Kopyala</button>
         </div>
-        
-        <span id="copy-toast" class="text-sm text-green-400 mt-2 opacity-0 transition-opacity duration-300">IP Adresi Kopyalandı!</span>
+        <span id="copy-toast" class="toast">IP Adresi Kopyalandı!</span>
     </header>
 
-    <section id="ozellikler" class="bg-gray-950 py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Neden Bizim Sunucumuz?</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-green-500/50 transition group">
-                    <div class="text-3xl mb-4 group-hover:scale-110 transition duration-300">⚡</div>
-                    <h3 class="text-xl font-bold mb-2">Yüksek Performans</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Özel optimize edilmiş işlemcilerimiz sayesinde 20 TPS sabit performansla lagsız bir oyun deneyimi sunuyoruz.</p>
-                </div>
-                <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-green-500/50 transition group">
-                    <div class="text-3xl mb-4 group-hover:scale-110 transition duration-300">⚔️</div>
-                    <h3 class="text-xl font-bold mb-2">Özel Sistemler</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Başka yerde görmediğiniz özel zindanlar, görevler ve tamamen dengelenmiş bir ekonomi sistemi sizi bekliyor.</p>
-                </div>
-                <div class="bg-gray-900 p-8 rounded-2xl border border-gray-800 hover:border-green-500/50 transition group">
-                    <div class="text-3xl mb-4 group-hover:scale-110 transition duration-300">🛡️</div>
-                    <h3 class="text-xl font-bold mb-2">Adil Yönetim</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Hile korumalarımız ve 7/24 aktif rehber kadromuzla tüm oyuncular için adil bir ortam sağlıyoruz.</p>
-                </div>
+    <section id="ozellikler" class="features-section">
+        <h2>Neden Bizim Sunucumuz?</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Yüksek Performans</h3>
+                <p>Özel optimize edilmiş işlemcilerimiz sayesinde 20 TPS sabit performansla lagsız bir oyun deneyimi sunuyoruz.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚔️</div>
+                <h3>Özel Sistemler</h3>
+                <p>Başka yerde görmediğiniz özel zindanlar, görevler ve tamamen dengelenmiş bir ekonomi sistemi sizi bekliyor.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Adil Yönetim</h3>
+                <p>Hile korumalarımız ve 7/24 aktif rehber kadromuzla tüm oyuncular için adil bir ortam sağlıyoruz.</p>
             </div>
         </div>
     </section>
 
-    <footer class="container mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm gap-4">
+    <footer class="footer">
         <div>&copy; 2026 SunucuAdi. Tüm hakları saklıdır.</div>
-        <div class="flex space-x-4">
-            <a href="#" class="hover:text-white transition">Discord</a>
-            <a href="#" class="hover:text-white transition">Kullanım Şartları</a>
+        <div class="footer-links">
+            <a href="#">Discord</a>
+            <a href="#">Kullanım Şartları</a>
         </div>
     </footer>
 
@@ -80,9 +66,9 @@
             const ipText = document.getElementById('server-ip').innerText;
             navigator.clipboard.writeText(ipText).then(() => {
                 const toast = document.getElementById('copy-toast');
-                toast.classList.remove('opacity-0');
+                toast.classList.add('show');
                 setTimeout(() => {
-                    toast.classList.add('opacity-0');
+                    toast.classList.remove('show');
                 }, 2000);
             });
         }
