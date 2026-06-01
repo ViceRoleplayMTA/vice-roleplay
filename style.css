@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght=400;600;800&display=swap');
 
 :root {
-    --bg-color: #0b0f19;       /* Koyu arka plan */
-    --bg-darker: #05070f;      /* Daha koyu alt alanlar */
-    --card-bg: #111827;        /* Kartların içi */
-    --primary-color: #0ea5e9;  /* Modern Turkuaz / Mavi tonu */
-    --primary-hover: #0284c7;  /* Buton hover rengi */
-    --text-main: #ffffff;      /* Beyaz yazı */
-    --text-muted: #9ca3af;     /* Soluk gri yazı */
+    --bg-color: #0b0f19;       
+    --bg-darker: #05070f;      
+    --card-bg: #111827;        
+    --primary-color: #0ea5e9;  
+    --primary-hover: #0284c7;  
+    --text-main: #ffffff;      
+    --text-muted: #9ca3af;     
 }
 
 * {
@@ -114,7 +114,6 @@ body {
     margin-bottom: 2rem;
 }
 
-/* IP Kopyalama Kutusu */
 .ip-container {
     background-color: rgba(17, 24, 39, 0.8);
     border: 1px solid rgba(55, 65, 81, 0.5);
@@ -179,7 +178,6 @@ body {
     opacity: 1;
 }
 
-/* Özellikler Bölümü */
 .features-section {
     background-color: var(--bg-darker);
     padding: 5rem 1.5rem;
@@ -276,7 +274,7 @@ body {
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 2rem;
 }
 
@@ -286,6 +284,7 @@ body {
     overflow: hidden;
     border: 1px solid #1f2937;
     transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
 }
 
 .category-card:hover {
@@ -341,6 +340,82 @@ body {
     background-color: var(--primary-color);
 }
 
+/* ================= YENİ ÜRÜNLER İÇİN TASARIMLAR ================= */
+.products-container {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.btn-back {
+    background-color: #1e293b;
+    color: var(--text-main);
+    border: 1px solid #374151;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.2s;
+}
+
+.btn-back:hover {
+    background-color: #374151;
+}
+
+.subcategory-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    border-left: 4px solid var(--primary-color);
+    padding-left: 0.75rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.product-card {
+    background-color: var(--card-bg);
+    border: 1px solid #1f2937;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: box-shadow 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.15);
+}
+
+.product-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.product-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.product-card .price {
+    font-weight: 800;
+    color: #22c55e;
+    font-size: 1.2rem;
+    text-align: right;
+    border-top: 1px solid #1f2937;
+    padding-top: 0.5rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* ================= FOOTER ================= */
 .footer {
     max-width: 1200px;
@@ -374,5 +449,5 @@ body {
     .hero h1 { font-size: 2.5rem; }
     .store-hero h1 { font-size: 2.2rem; }
     .store-hero-img img { width: 200px; }
-    .categories-grid { grid-template-columns: 1fr; }
+    .categories-grid, .products-grid { grid-template-columns: 1fr; }
 }
